@@ -15,12 +15,13 @@ const server = http.createServer(async (req, res) => {
   res.setHeader("Content-Type", "application/json");
   switch (req.url) {
     // Will respond to queries to the domain root (like http://localhost/)
-    case "/":
-      const query = await notion.databases.query({
+    case "/user":
+      const response = await notion.databases.query({
         database_id: notionDatabaseId,
       });
       // Only supports the / route
       res.setHeader("Content-Type", "application/json");
+      const query = response.results.map(x => x.status == "Active");
       console.log(query);
       res.writeHead(200);
       res.write(JSON.stringify(query));
