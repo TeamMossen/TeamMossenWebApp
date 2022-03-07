@@ -11,19 +11,16 @@ export default class User extends Component {
     };
   }
   componentDidMount(){
-    var requests = fetch("http://localhost:8000/user")
+    fetch("http://localhost:8000/user")
     .then((response) => response.json())
-    .then((data) => this.setState({
-      fetchedProjects: response,
+    .then((data) => { 
+      this.setState({
+      fetchedProjects: data,
       projectsFetched: true
-    }));
-
-
-    this.setState.fetch("http://localhost:8000/user")
-              .then((response) => response.json())
-              .then((data) => {
-                this.state.fetchedProjs = data.map()
-              });
+    });
+    console.log(data);
+  });
+    
   }
   render() {
 
@@ -33,6 +30,6 @@ export default class User extends Component {
             <h2>Loading...</h2>
         )
     }
-    if()
+    
   }
 }
