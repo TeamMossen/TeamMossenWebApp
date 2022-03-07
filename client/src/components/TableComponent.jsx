@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Table from 'react-bootstrap/Table';
 import TableRowComponent from './TableRowComponent';
 
 export default class TableComponent extends Component {

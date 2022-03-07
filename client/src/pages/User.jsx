@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import TableComponent from '../components/TableComponent';
 import { GetDb } from '../scripts/dbHandler';
 
 export default class User extends Component {
@@ -30,6 +31,13 @@ export default class User extends Component {
             <h2>Loading...</h2>
         )
     }
-    
+    if (this.state.DataFetched)
+    {
+      return(
+        <>
+          <TableComponent props={this.state.fetchedProjects} />
+        </>
+      )
+    }
   }
 }
