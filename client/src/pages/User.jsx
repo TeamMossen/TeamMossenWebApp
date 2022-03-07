@@ -9,6 +9,13 @@ export default class User extends Component {
       fetchedProjs: []
     };
   }
+  componentDidMount(){
+    this.setState. fetch("http://localhost:8000/user")
+              .then((response) => response.json())
+              .then((data) => {
+                this.state.fetchedProjs = data.map()
+              });
+  }
   render() {
     return (
       <>
