@@ -21,10 +21,10 @@ const server = http.createServer(async (req, res) => {
       });
       // Only supports the / route
       res.setHeader("Content-Type", "application/json");
-      const query = response.results.filter(x => x.properties.Status.select.name == "Active");
-      console.log(query.properties);
+      const query = response.results.filter(x => x.properties.Status.select.name == "Active").map(x => x.properties);
+      console.log(query);
       res.writeHead(200);
-      res.write(JSON.stringify(query.properties));
+      res.write(JSON.stringify(query));
       res.end();
       break;
     default:
