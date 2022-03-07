@@ -3,8 +3,8 @@ import 'dotenv/config';
 import http from 'http';
 const host = "localhost";
 const port = 8000;
-const notionDatabaseId = process.env.NOTION_DATABASE_ID;
-const notionSecret = process.env.NOTION_SECRET;
+const notionDatabaseId = '826b2f0b4d7b4db8835b7e542740b232';
+const notionSecret = 'secret_gYMaWz1WyGLjJ8vBVppZjapzdCB4wOx9ZH2e60HyPO9';
 const notion = new Client({
     auth: notionSecret,
   });
@@ -16,14 +16,14 @@ const server = http.createServer(async (req, res) => {
   switch (req.url) {
     // Will respond to queries to the domain root (like http://localhost/)
     case "/":
-        const query = await notion.databases.query({
-            database_id: notionDatabaseId,
-        });
-    // Only supports the / route
-    res.setHeader("Content-Type", "application/json");
-    res.writeHead(200);
-    res.end(query);
-    break;
+      const query = await notion.databases.query({
+        database_id: notionDatabaseId,
+      });
+      // Only supports the / route
+      res.setHeader("Content-Type", "application/json");
+      res.writeHead(200);
+      res.end(query);
+      break;
     default:
       res.writeHead(404);
       res.end(JSON.stringify({ error: "Resource not found" }));
