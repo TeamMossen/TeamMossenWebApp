@@ -1,10 +1,11 @@
 import { Client } from "@notionhq/client";
 import 'dotenv/config';
 import http from 'http';
+import 'dotenv/config' 
 const host = "localhost";
 const port = 8000;
-const notionDatabaseId = "cd0e63084c4f4b3d850dfc217110d3fa";
-const notionSecret = "secret_gYMaWz1WyGLjJ8vBVppZjapzdCB4wOx9ZH2e60HyPO9";
+const notionDatabaseId = process.env.NOTION_DATABASE_ID;
+const notionSecret = process.env.NOTION_KEY;
 const notion = new Client({
     auth: notionSecret,
   });
