@@ -3,14 +3,12 @@ import Table from 'react-bootstrap/Table';
 import ProjectTableRow from './ProjectTableRow';
 
 export default class ProjectsTable extends Component {
-    constructor(props){
-        super(props);
-        console.log(props);
-        this.state = {
-          projects: props
-        }
+  constructor(props) {
+    super(props);
+    this.state = {
+      projects: props.props
     }
-
+  }
   render() {
 
     if (this.state.projects)
@@ -27,8 +25,8 @@ export default class ProjectsTable extends Component {
             </tr>
           </thead>
           <tbody>
-              {this.state.projects.props.map((project, key) => 
-                  <ProjectTableRow proj = {project} key= {key}/>
+              {this.state.projects.map((project, key) =>(
+                  <ProjectTableRow proj = {project} key= {key}/>)
               )}
           </tbody>
         </Table>
