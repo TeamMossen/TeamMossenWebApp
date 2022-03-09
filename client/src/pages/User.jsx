@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import TableComponent from '../components/TableComponent';
+import ProjectsTable from '../components/ProjectsTable';
 import { GetDb } from '../scripts/dbHandler';
 
 export default class User extends Component {
@@ -19,23 +19,22 @@ export default class User extends Component {
       fetchedProjects: data,
       projectsFetched: true
     });
-    console.log(data);
   });
     
   }
   render() {
 
-    if (!this.state.DataFetched)
+    if (!this.state.projectsFetched)
     {
         return (
             <h2>Loading...</h2>
         )
     }
-    if (this.state.DataFetched)
+    if (this.state.projectsFetched)
     {
       return(
         <>
-          <TableComponent props={this.state.fetchedProjects} />
+          <ProjectsTable props={this.state.fetchedProjects} />
         </>
       )
     }
