@@ -1,8 +1,20 @@
 import { notionDatabaseId, notion } from '../notion.js'
 
+
+const returnDatabase = async (req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Content-Type", "application/json");
+    const response = await notion.databases.query({
+        database_id: notionDatabaseId,
+    });
+    res.writeHead(200);
+    res.write(JSON.stringify(response));
+    res.end();
+}
+
 //GET '/user'
 const getActiveProjects = async (req, res, next) => {
-      // Avoid CORS errors
+  
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Content-Type", "application/json");
   
@@ -10,8 +22,9 @@ const getActiveProjects = async (req, res, next) => {
     database_id: notionDatabaseId,
   });
   // Only supports the / route
+  //console.log(response);
   const query = response.results.filter(x => x.properties.Status.select.name == "Active").map(x => x.properties);
-  console.log(query);
+  
   res.writeHead(200);
   res.write(JSON.stringify(query));
   res.end();
@@ -44,6 +57,7 @@ const deleteOneTea = (req, res, next) => {
 
 //export controller functions
 export {
+    returnDatabase,
     getActiveProjects, 
     newTea,
     deleteAllTea,

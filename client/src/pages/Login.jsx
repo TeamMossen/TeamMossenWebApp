@@ -4,7 +4,17 @@ import { NavLink } from 'react-router-dom';
 import { GetDb } from '../scripts/dbHandler';
 
 export default class Login extends Component {
+
+  componentDidMount(){
+    fetch("http://localhost:8000/data")
+    .then((response) => response.json())
+    .then((data) => { 
+      console.log(data);
+    });
+  }
+
   render() {
+
     return (
       <>
         <DropdownButton id="dropdown-basic-button" title="Dropdown button">

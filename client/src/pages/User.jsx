@@ -12,7 +12,7 @@ export default class User extends Component {
     };
   }
   componentDidMount(){
-    fetch("http://localhost:8000/user")
+    fetch("http://localhost:8000/activeProjects")
     .then((response) => response.json())
     .then((data) => { 
       this.setState({

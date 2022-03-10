@@ -1,8 +1,10 @@
 import express from 'express';
 export const router  = express.Router();
-import { getActiveProjects, newTea, deleteAllTea, getOneTea, newComment, deleteOneTea } from  '../Controllers/user.mjs';
+import { getActiveProjects, newTea, deleteAllTea, getOneTea, newComment, deleteOneTea, returnDatabase } from  '../Controllers/user.mjs';
 
-router.get('/user', getActiveProjects);
+
+router.get('/data', returnDatabase);
+router.get('/activeProjects', getActiveProjects);
 
 router.post('/tea', newTea);
 router.delete('/tea', deleteAllTea);
