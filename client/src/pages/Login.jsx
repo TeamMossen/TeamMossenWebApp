@@ -8,9 +8,25 @@ export default class Login extends Component {
   state = {
 
   }
-
+  socialLogin = async () => {
+    try {
+        const { search } = this.props.history.location; // the search variable contains every string after the `?` mark with the `?` inclusive
+        const codeFromGoogle = search.slice(6) // to get the value of the code query param.
+        const res = Axios.get('BACKEND_SERVER_BASEURL/auth/google?code=codeFromGoogle&redirect_uri=FRONT_END_BASEURL/auth/google')
+        if (res.data) {
+          // request was successful
+          localStorage.setItem('token', res.data.token) // Store the token from this request in the local storage
+          this.props.history.push('/dashboard') // Log the user in and redirect to your app dashboard
+        } 
+      } catch (err) {
+        console.error(err)
+      }
+  }
   componentDidMount() {
-    const {pathname} = this.props.history.location;
+    const { pathname } = this.props.history.location;
+    if (pathname === '/oauth-callback') {
+      this.socialLogin();
+    }
   }
 
   render() {
