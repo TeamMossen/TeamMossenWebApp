@@ -1,7 +1,9 @@
 import express from 'express'; //import express
 //import { Client } from "@notionhq/client";
 
-import { router } from './Routes/user.mjs';
+import { userRouter } from './Routes/user.mjs';
+import { loginRouter } from './Routes/login.mjs';
+
 //const routes = require('./Routes/user'); // import the routes
 
 //const host = "localhost";
@@ -13,7 +15,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use('/', router); //to use the routes
+app.use('/', userRouter, loginRouter); //to use the routes
 
 const listener = app.listen(process.env.PORT || port, () => {
     console.log('Your app is listening on port ' + listener.address().port)

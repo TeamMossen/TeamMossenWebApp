@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import ProjectsTable from '../components/ProjectsTable';
-import { GetDb } from '../scripts/dbHandler';
 
 export default class User extends Component {
   constructor(props) {
