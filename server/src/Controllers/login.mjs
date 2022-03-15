@@ -10,7 +10,10 @@ const redirectToOauth = async (req, res, next) => {
 };
 
 const OauthCallback = async (req, res) => {
+  console.log('plz');
   try {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    console.log('plz2');
     const { code, redirect_uri } = req.query; // code from service provider which is appended to the frontend's URL
     const client_id = notionClientId;
     const client_secret = notionSecret;
