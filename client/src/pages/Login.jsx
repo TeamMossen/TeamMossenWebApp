@@ -17,7 +17,7 @@ export default class Login extends Component {
         console.log(history.location);
         const { code } = search.split(6); // to get the value of the code query param.
         console.log(code);
-        const res = Axios.get(`localhost:8000/oauth-callback?code=${code}&redirect_uri=localhost:3000/finished`)
+        const res = Axios.get(`http://localhost:8000/oauth-callback?code=${code}&redirect_uri=localhost:3000/finished`)
         if (res.data) {
           // request was successful
           localStorage.setItem('token', res.data.token) // Store the token from this request in the local storage

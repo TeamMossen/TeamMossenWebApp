@@ -32,6 +32,11 @@ const OauthCallback = async (req, res) => {
       }
     });
     console.log(data);
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.writeHead(200);
+    res.setHeader("Content-Type", "application/json");
+    res.write(JSON.stringify('response'));
+    res.end();
   //   const tokenFromGoogle = data.access_token;
   //   const urlForGettingUserInfo = "https://www.googleapis.com/oauth2/v2/userinfo";
   //   const userData = await axios({
@@ -53,6 +58,7 @@ const OauthCallback = async (req, res) => {
   //     token: ourOwnToken,
   //   });
   } catch (err) {
+    console.log('errrorrr');
     return res.status(500).json({
       success: false,
       err,
