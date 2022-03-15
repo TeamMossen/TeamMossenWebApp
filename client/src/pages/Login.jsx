@@ -4,25 +4,30 @@ import { Stack, Button} from 'react-bootstrap'
 import { NavLink } from 'react-router-dom';
 import  { Redirect } from 'react-router-dom';
 import Axios from 'axios';
+import history from "history/browser";
 
 export default class Login extends Component {
-
+  state = {
+    
+  }
   socialLogin = async () => {
     try {
-        const { search } = this.props.history.location; // the search variable contains every string after the `?` mark with the `?` inclusive
-        const { code } = search.query() // to get the value of the code query param.
-        const res = Axios.get(`localhost:8000/oauth-callback?code=${code}&redirect_uri=localhost:3000/auth/google`)
+        const { search } = history.location; // the search variable contains every string after the `?` mark with the `?` inclusive
+        console.log(search);
+        console.log(history.location);
+        const { code } = search.split() // to get the value of the code query param.
+        const res = Axios.get(`localhost:8000/oauth-callback?code=${code}&redirect_uri=localhost:3000/finished`)
         if (res.data) {
           // request was successful
           localStorage.setItem('token', res.data.token) // Store the token from this request in the local storage
-          this.props.history.push('/dashboard') // Log the user in and redirect to your app dashboard
+          history.push('/dashboard') // Log the user in and redirect to your app dashboard
         } 
       } catch (err) {
         console.error(err)
       }
   }
   componentDidMount() {
-    const { pathname } = this.props.history.location;
+    const { pathname } = history.location;
     if (pathname === '/oauth-callback') {
       this.socialLogin();
     }
