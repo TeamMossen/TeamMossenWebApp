@@ -1,4 +1,5 @@
-import { notionClientId, notionSecret, notion } from '../notion.js'
+import { notionClientId, notionSecret, notion } from '../notion.js';
+import axios from 'axios';
 
 const redirectToOauth = async (req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -56,10 +57,12 @@ const OauthCallback = async (req, res) => {
       success: false,
       err,
     });
+   }
+// };
   }
-};
 
 //export controller functions
 export {
-    redirectToOauth
+    redirectToOauth,
+    OauthCallback
 };

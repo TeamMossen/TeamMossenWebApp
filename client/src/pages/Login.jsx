@@ -3,16 +3,15 @@ import { DropdownButton, Dropdown} from 'react-bootstrap'
 import { Stack, Button} from 'react-bootstrap'
 import { NavLink } from 'react-router-dom';
 import  { Redirect } from 'react-router-dom';
+import Axios from 'axios';
 
 export default class Login extends Component {
-  state = {
 
-  }
   socialLogin = async () => {
     try {
         const { search } = this.props.history.location; // the search variable contains every string after the `?` mark with the `?` inclusive
-        const codeFromGoogle = search.slice(6) // to get the value of the code query param.
-        const res = Axios.get('BACKEND_SERVER_BASEURL/auth/google?code=codeFromGoogle&redirect_uri=FRONT_END_BASEURL/auth/google')
+        const { code } = search.query() // to get the value of the code query param.
+        const res = Axios.get(`localhost:8000/oauth-callback?code=${code}&redirect_uri=localhost:3000/auth/google`)
         if (res.data) {
           // request was successful
           localStorage.setItem('token', res.data.token) // Store the token from this request in the local storage
