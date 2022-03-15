@@ -1,9 +1,9 @@
 import express from 'express';
 export const userRouter  = express.Router();
-import {  newTea, deleteAllTea, getOneTea, newComment, deleteOneTea, } from  '../Controllers/user.mjs';
+import {  returnDatabase, getActiveProjects,newTea, deleteAllTea, getOneTea, newComment, deleteOneTea, } from  '../Controllers/user.mjs';
 
-// userRouter.get('/data', returnDatabase);
-// userRouter.get('/activeProjects', getActiveProjects);
+userRouter.get('/data', returnDatabase);
+userRouter.get('/activeProjects', getActiveProjects);
 
 userRouter.post('/tea', newTea);
 userRouter.delete('/tea', deleteAllTea);
