@@ -12,11 +12,12 @@ const redirectToOauth = async (req, res, next) => {
 const OauthCallback = async (req, res) => {
   console.log('plz');
   try {
-    res.setHeader("Access-Control-Allow-Origin", "*");
     console.log('plz2');
-    const { code, redirect_uri } = req.query; // code from service provider which is appended to the frontend's URL
+    const { code } = req.query; // code from service provider which is appended to the frontend's URL
+    console.log(code);
     const client_id = notionClientId;
     const client_secret = notionSecret;
+    const redirect_uri = 'http://localhost:3000/oauth-callback';
     // The client_id and client_secret should always be private, put them in the .env file
     const grant_type = "authorization_code"; // this tells the service provider to return a code which will be used to get a token for making requests to the service provider
     const url = "https://api.notion.com/v1/oauth/token"; // link to api to exchange code for token.
@@ -36,8 +37,8 @@ const OauthCallback = async (req, res) => {
     });
     console.log(data);
     res.setHeader("Access-Control-Allow-Origin", "*");
-    res.writeHead(200);
     res.setHeader("Content-Type", "application/json");
+    res.writeHead(200);
     res.write(JSON.stringify('response'));
     res.end();
   //   const tokenFromGoogle = data.access_token;
