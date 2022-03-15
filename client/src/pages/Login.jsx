@@ -15,7 +15,8 @@ export default class Login extends Component {
         const { search } = history.location; // the search variable contains every string after the `?` mark with the `?` inclusive
         console.log(search);
         console.log(history.location);
-        const { code } = search.split() // to get the value of the code query param.
+        const { code } = search.split(6); // to get the value of the code query param.
+        console.log(code);
         const res = Axios.get(`localhost:8000/oauth-callback?code=${code}&redirect_uri=localhost:3000/finished`)
         if (res.data) {
           // request was successful
