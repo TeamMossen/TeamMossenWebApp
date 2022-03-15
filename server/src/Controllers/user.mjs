@@ -1,11 +1,11 @@
-import { notionDatabaseId, notion } from '../notion.js'
+import { notionProjectsDatabaseId, notion } from '../notion.js'
 
 
 const returnDatabase = async (req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Content-Type", "application/json");
     const response = await notion.databases.query({
-        database_id: notionDatabaseId,
+        database_id: notionProjectsDatabaseId,
     });
     res.writeHead(200);
     res.write(JSON.stringify(response));
@@ -29,7 +29,7 @@ const getActiveProjects = async (req, res, next) => {
   res.setHeader("Content-Type", "application/json");
   
   const response = await notion.databases.query({
-    database_id: notionDatabaseId,
+    database_id: notionProjectsDatabaseId,
   });
   // Only supports the / route
   //console.log(response);
