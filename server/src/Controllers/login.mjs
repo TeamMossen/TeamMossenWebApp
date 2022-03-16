@@ -1,4 +1,5 @@
-import { notionClientId, notionSecret, notion } from '../notion.js';
+import { notionClientId, notionSecret, notion, accessTokenSecret } from '../notion.js';
+import jwt from 'jsonwebtoken';
 import axios from 'axios';
 
 const redirectToOauth = async (req, res, next) => {
@@ -35,20 +36,33 @@ const OauthCallback = async (req, res) => {
       headers: { "Content-Type": "application/json" },
     };
 
-    axios(options).then((data) => {
-      const userData = {
-        name: data.data.owner.user.name,
-        id: data.data.owner.user.id,
-      };
-    });
-    console.log(userData);
+    let tokenResponse = await axios(options);
 
-    const userToken = jwt.encode(userData);
+    let userData = {
+      name: tokenResponse.data.owner.user.name,
+      id: tokenResponse.data.owner.user.id,
+    }
 
+    const accessToken = jwt.sign(userData, accessTokenSecret);
+    console.log(accessToken);
     return res.status(200).json({
       success: true,
-      token: userToken,
+      token: accessToken,
     });
+
+    // axios(options).then((data) => {
+    //   return {
+    //     name: data.data.owner.user.name,
+    //     id: data.data.owner.user.id,
+    //   };
+    // })
+    // .then((userData) => {
+    // jwt.sign(userData, accessTokenSecret)})
+
+    // return res.status(200).json({
+    //   success: true,
+    //   token: userToken,
+    // });
 
     //   const tokenFromGoogle = data.access_token;
     //   const urlForGettingUserInfo = "https://www.googleapis.com/oauth2/v2/userinfo";
@@ -71,14 +85,25 @@ const OauthCallback = async (req, res) => {
     //     token: ourOwnToken,
     //   });
   } catch (err) {
-    console.log('errrorrr');
+    console.log(err);
     return res.status(500).json({
       success: false,
       err,
     });}}
   //  }
   // }
-
+  function authenticateToken(req, res, next) {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+    if (token == null) return res.sendStatus(401);
+  
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+      console.log(err)
+      if (err) return res.sendStatus(403)
+      req.user = user
+      next();
+    })
+  }
 //export controller functions
 export {
     redirectToOauth,
