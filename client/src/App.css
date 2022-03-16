@@ -51,6 +51,16 @@
       transform: rotate(360deg);
   }
 }
+@media screen and (max-width:1500px) {
+  .myPic{
+    left:40%;
+  }
+}
+@media screen and (max-width:550px) {
+  .myPic{
+    left:35%;
+  }
+}
 
 
 
