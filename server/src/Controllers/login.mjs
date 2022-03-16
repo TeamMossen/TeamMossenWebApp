@@ -1,6 +1,7 @@
 import { notionClientId, notionSecret, notion, accessTokenSecret } from '../notion.js';
 import jwt from 'jsonwebtoken';
 import axios from 'axios';
+import { GetUserById } from '../Database/user.mjs';
 
 const redirectToOauth = async (req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -15,9 +16,7 @@ const OauthCallback = async (req, res) => {
   res.setHeader("Content-Type", "application/json");
 
   try {
-    console.log("plz2");
     const { code } = req.query; // code from service provider which is appended to the frontend's URL
-    console.log(code);
     const grant_type = "authorization_code"; // this tells the service provider to return a code which will be used to get a token for making requests to the service provider
     const url = "https://api.notion.com/v1/oauth/token"; // link to api to exchange code for token.
 
@@ -42,9 +41,10 @@ const OauthCallback = async (req, res) => {
       name: tokenResponse.data.owner.user.name,
       id: tokenResponse.data.owner.user.id,
     }
-
+    console.log(userData.id);
     const accessToken = jwt.sign(userData, accessTokenSecret);
-    console.log(accessToken);
+    //console.log(accessToken);
+    GetUserById("12f57bfc-6c43-4960-9930-094a6c734bc7");
     return res.status(200).json({
       success: true,
       token: accessToken,
@@ -84,6 +84,7 @@ const OauthCallback = async (req, res) => {
     //     success: true,
     //     token: ourOwnToken,
     //   });
+
   } catch (err) {
     console.log(err);
     return res.status(500).json({

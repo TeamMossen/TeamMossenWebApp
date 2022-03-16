@@ -12,6 +12,7 @@ export default class Login extends Component {
   }
   socialLogin = async () => {
     try {
+
         const { search } = history.location; // the search variable contains every string after the `?` mark with the `?` inclusive
         console.log(search);
         console.log(history.location);
@@ -28,10 +29,16 @@ export default class Login extends Component {
       }
   }
   componentDidMount() {
+    
     const { pathname } = history.location;
     if (pathname === '/oauth-callback') {
       this.socialLogin();
     }
+    fetch("http://localhost:8000/data")
+    .then((response) => response.json())
+    .then((data) => { 
+      console.log(data);
+    });
   }
 
   render() {
