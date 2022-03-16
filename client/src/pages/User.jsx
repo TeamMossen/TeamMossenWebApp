@@ -41,7 +41,7 @@ export default class User extends Component {
           <div className=''>
             <img className="myPic" src={require("../static/images/clock.png")} alt="En klocka" />
           </div>
-          <TimereportInput></TimereportInput>
+          <TimereportInput props={this.state.fetchedProjects}/>
           <ProjectsTable props={this.state.fetchedProjects} />
          
           

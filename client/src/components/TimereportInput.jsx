@@ -3,10 +3,17 @@ import { Dropdown} from 'react-bootstrap'
 
 
 export default class TimereportInput extends Component {
-  render() {
-    return (
       
-        
+    constructor(props) {
+        super(props);
+        this.state = {
+          projects: props.props
+        }
+        console.log(this.state.projects)
+      }
+    render() {
+    return (
+    
         <div className='container container-input'>
             <h2 className='h2-time-input'>Set project, time and date</h2>
             <div className='row my-row'>
@@ -17,9 +24,11 @@ export default class TimereportInput extends Component {
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
-                            <Dropdown.Item href="#/action-1">Project 1</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">Project 2</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">Project 3</Dropdown.Item>
+                        
+                            {this.state.projects.map((project, key) => (
+                                
+                                <Dropdown.Item>{project.Projectname.title[0].plain_text}</Dropdown.Item>)
+                            )}
                         </Dropdown.Menu>
                     </Dropdown>
                 </div>
@@ -42,7 +51,7 @@ export default class TimereportInput extends Component {
             <div className='row row-smaller'></div>
             
         </div>
-
+        
 
         
       
