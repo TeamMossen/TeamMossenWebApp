@@ -1,26 +1,16 @@
-import { notionProjectsDatabaseId, notion } from '../notion.js'
+import { notionProjectsDatabaseId, notionPeoplesDatabaseId, notion } from '../notion.js'
 
 
 const returnDatabase = async (req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Content-Type", "application/json");
     const response = await notion.databases.query({
-        database_id: notionProjectsDatabaseId,
+        database_id: notionPeoplesDatabaseId,
     });
     res.writeHead(200);
     res.write(JSON.stringify(response));
     res.end();
 }
-// const redirectToOauth = async (req, res, next) => {
-//     res.setHeader("Access-Control-Allow-Origin", "*");
-//     res.setHeader("Content-Type", "application/json");
-//     const response = await notion.databases.query({
-//         database_id: notionDatabaseId,
-//     });
-//     res.writeHead(200);
-//     res.write(JSON.stringify(response));
-//     res.end();
-// }
 
 //GET '/user'
 const getActiveProjects = async (req, res, next) => {
