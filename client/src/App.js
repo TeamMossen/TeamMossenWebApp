@@ -13,8 +13,8 @@ function App() {
       {/* <NavComponent></NavComponent> */}
       <Routes>
         <Route path="/" element={<Login/>}/>
-        <Route path="/user" element={<User/>}></Route>
-        <Route path="/oauth-callback" element={<Login/>}></Route>
+        <Route path="/user" element={<User/>}/>
+        <Route path="/oauth-callback" element={<Login/>}/>
       </Routes>
     </Router>
   );
