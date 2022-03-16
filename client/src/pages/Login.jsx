@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
-import { DropdownButton, Dropdown} from 'react-bootstrap'
 import { Stack, Button} from 'react-bootstrap'
-import { NavLink } from 'react-router-dom';
-import  { Redirect } from 'react-router-dom';
+import  { Navigate } from 'react-router-dom';
 import Axios from 'axios';
 import history from "history/browser";
 
 export default class Login extends Component {
   state = {
-    
+    redirect: false
   }
   socialLogin = async () => {
     try {
@@ -17,11 +15,13 @@ export default class Login extends Component {
         console.log(history.location);
         const code = search.split('=')[1].split('&')[0]; // to get the value of the code query param.
         console.log(code);
-        const res = Axios.get(`http://localhost:8000/oauth-callback?code=${code}&redirect_uri=localhost:3000/finished`)
-        if (res.token) {
+        const res = await Axios.get(`http://localhost:8000/oauth-callback?code=${code}&redirect_uri=localhost:3000/finished`)
+        console.log(res);
+        if (res.data.token) {
           // request was successful
+          console.log('efter if');
           localStorage.setItem('token', res.data.token) // Store the token from this request in the local storage
-          history.push('/dashboard') // Log the user in and redirect to your app dashboard
+          this.setState({redirect: true});
         } 
       } catch (err) {
         console.error(err)
@@ -29,12 +29,17 @@ export default class Login extends Component {
   }
   componentDidMount() {
     const { pathname } = history.location;
+    console.log(pathname);
     if (pathname === '/oauth-callback') {
       this.socialLogin();
     }
   }
 
   render() {
+    if (this.state.redirect)
+    {
+      return <Navigate to="/dashboard"/>
+    }
     return (
       <>
         <Stack

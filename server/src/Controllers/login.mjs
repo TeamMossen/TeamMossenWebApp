@@ -42,7 +42,7 @@ const OauthCallback = async (req, res) => {
       name: tokenResponse.data.owner.user.name,
       id: tokenResponse.data.owner.user.id,
     }
-
+    console.log(tokenResponse.data.owner.user.name);
     const accessToken = jwt.sign(userData, accessTokenSecret);
     console.log(accessToken);
     return res.status(200).json({
