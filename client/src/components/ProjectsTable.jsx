@@ -14,22 +14,29 @@ export default class ProjectsTable extends Component {
     if (this.state.projects)
     {
       return (
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>Project Name</th>
-              <th>Status</th>
-              <th>Hours</th>
-              <th>Worked Hours</th>
-              <th>Timespan</th>
-            </tr>
-          </thead>
-          <tbody>
-              {this.state.projects.map((project, key) =>(
-                  <ProjectTableRow proj = {project} key= {key}/>)
-              )}
-          </tbody>
-        </Table>
+        <div className='container table-time-report'>
+        <div className='row'>
+          <div className='col'>
+            
+            <Table striped bordered hover>
+              <thead>
+                <tr>
+                  <th>Project Name</th>
+                  <th>Status</th>
+                  <th>Hours</th>
+                  <th>Worked Hours</th>
+                  <th>Timespan</th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.projects.map((project, key) => (
+                  <ProjectTableRow proj={project} key={key} />)
+                )}
+              </tbody>
+            </Table>
+          </div>
+        </div>
+        </div>
       );
    }
    else {

@@ -34,15 +34,17 @@ export default class User extends Component {
     {
       return(
         <>
-        <div className='background-div'>
+         
+          <div className='background-div'>
             <img className='ica-pic' src={require("../static/images/icastampel.jpg")} alt="bild på stämpelklocka"></img>
           </div>
           <div className=''>
             <img className="myPic" src={require("../static/images/clock.png")} alt="En klocka" />
           </div>
-          
           <TimereportInput></TimereportInput>
           <ProjectsTable props={this.state.fetchedProjects} />
+         
+          
         </>
       )
     }
