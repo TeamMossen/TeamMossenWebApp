@@ -15,9 +15,13 @@ export default class ProjectsTable extends Component {
     {
       return (
         <div className='container table-time-report'>
+          <div className='row'>
+            <div className='col'></div>
+            <div className='col text-center'><h2>Project Table</h2></div>
+            <div className='col'></div>
+          </div>
         <div className='row'>
           <div className='col'>
-            
             <Table striped bordered hover>
               <thead>
                 <tr>

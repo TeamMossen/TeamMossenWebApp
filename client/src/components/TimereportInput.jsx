@@ -20,7 +20,7 @@ export default class TimereportInput extends Component {
                 <div className='col my-col'>
                     <Dropdown>
                         <Dropdown.Toggle variant="secondary" id="dropdown-basic">
-                            Dropdown Button
+                            Projects
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
