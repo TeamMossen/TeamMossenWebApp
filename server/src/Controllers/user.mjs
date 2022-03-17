@@ -8,7 +8,7 @@ const returnDatabase = async (req, res, next) => {
     const response = await notion.databases.query({
         database_id: notionTimeReportDatabaseId,
     });
-    PostTimeReport("date","person id",6,"project id","ZZZ");
+    //PostTimeReport("date","person id",6,"project id","ZZZ");
     res.writeHead(200);
     res.write(JSON.stringify(response));
     res.end();

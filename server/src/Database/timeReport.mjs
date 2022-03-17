@@ -33,7 +33,7 @@ async function PostTimeReport(date, userId, hours, project, note){
             "title": [
                 {
                     "text": {
-                        "content": "ZZZZZZZZ"
+                        "content": note
                     }
                 }
             ]
