@@ -1,12 +1,14 @@
-import { notionPeoplesDatabaseId, notion } from "../notion.js";
+import { notionPeoplesDatabaseId, notionTimeReportDatabaseId, notion } from "../notion.js";
 import { GetActiveProjects } from "../Database/project.mjs";
+import { PostTimeReport } from "../Database/timeReport.mjs";
 
 const returnDatabase = async (req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Content-Type", "application/json");
     const response = await notion.databases.query({
-        database_id: notionPeoplesDatabaseId,
+        database_id: notionTimeReportDatabaseId,
     });
+    PostTimeReport("date","person id",6,"project id","ZZZ");
     res.writeHead(200);
     res.write(JSON.stringify(response));
     res.end();
@@ -20,6 +22,7 @@ const getActiveProjects = async (req, res, next) => {
   res.write(JSON.stringify(await GetActiveProjects()));
   res.end();
 };
+
 
 // //POST '/tea'
 // const newTea = (req, res, next) => {
