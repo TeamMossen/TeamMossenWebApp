@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Dropdown} from 'react-bootstrap'
+import { Dropdown, DropdownButton} from 'react-bootstrap'
 
 
 export default class TimereportInput extends Component {
@@ -10,27 +10,34 @@ export default class TimereportInput extends Component {
           projects: props.props
         }
         console.log(this.state.projects)
-      }
-    render() {
-    return (
+       
     
+    }
+  
+      
+   
+    render() {
+        const handleSelect=(e)=>{
+            console.log(e);
+        }
+    return (
+        
         <div className='container container-input'>
             <h2 className='h2-time-input'>Set project, time and date</h2>
             <div className='row my-row'>
                 <div className='col my-col'>
-                    <Dropdown>
-                        <Dropdown.Toggle variant="secondary" id="dropdown-basic">
-                            Choose project
-                        </Dropdown.Toggle>
-
-                        <Dropdown.Menu>
+                  
+                    <DropdownButton title="Choose project" variant="secondary" id="dropdown-button" onSelect={handleSelect}>
                         
-                            {this.state.projects.map((project, key) => (
-                                
-                                <Dropdown.Item>{project.Projectname.title[0].plain_text}</Dropdown.Item>)
-                            )}
-                        </Dropdown.Menu>
-                    </Dropdown>
+                        {this.state.projects.map((project, key) => (
+                        
+                            <Dropdown.Item eventkey="">{project.Projectname.title[0].plain_text}</Dropdown.Item>
+                            
+                        ))}
+                    </DropdownButton>
+                  
+
+
                 </div>
                 <div className='col-sm-3 my-col'>
                     <div className='input-group'>
