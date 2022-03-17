@@ -42,9 +42,10 @@ const OauthCallback = async (req, res) => {
       id: tokenResponse.data.owner.user.id,
     }
     console.log(userData.id);
+    GetUserById(userData.id);
     const accessToken = jwt.sign(userData, accessTokenSecret);
     //console.log(accessToken);
-    GetUserById("12f57bfc-6c43-4960-9930-094a6c734bc7");
+
     return res.status(200).json({
       success: true,
       token: accessToken,
