@@ -37,12 +37,13 @@ const OauthCallback = async (req, res) => {
 
     let tokenResponse = await axios(options);
 
-    let userData = {
-      name: tokenResponse.data.owner.user.name,
-      id: tokenResponse.data.owner.user.id,
-    }
-    console.log(userData.id);
-    GetUserById(userData.id);
+     let userData =  GetUserById(tokenResponse.data.owner.user.id);
+     //{
+    //   name: tokenResponse.data.owner.user.name,
+    //   id: tokenResponse.data.owner.user.id,
+    // }
+    console.log(userData);
+   
     const accessToken = jwt.sign(userData, accessTokenSecret);
     //console.log(accessToken);
 
