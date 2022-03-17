@@ -4,7 +4,7 @@ async function GetUserById(id) {
     const response = await notion.databases.query({
         database_id: notionPeoplesDatabaseId,
     });
-    console.log(response);
+    //console.log(response);
     const user = response.results.filter(x => x.properties.id.rich_text[0].plain_text == id).map(x => x.properties);
 
     return {
