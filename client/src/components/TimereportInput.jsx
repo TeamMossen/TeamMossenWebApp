@@ -31,7 +31,7 @@ export default class TimereportInput extends Component {
                         
                         {this.state.projects.map((project, key) => (
                         
-                            <Dropdown.Item eventkey="">{project.Projectname.title[0].plain_text}</Dropdown.Item>
+                            <Dropdown.Item key={key} eventkey={project.Projectname.title[0].plain_text}>{project.Projectname.title[0].plain_text}</Dropdown.Item>
                             
                         ))}
                     </DropdownButton>
