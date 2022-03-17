@@ -37,7 +37,7 @@ const OauthCallback = async (req, res) => {
 
     let tokenResponse = await axios(options);
 
-     let userData =  GetUserById(tokenResponse.data.owner.user.id);
+    let userData =  await GetUserById(tokenResponse.data.owner.user.id);
      //{
     //   name: tokenResponse.data.owner.user.name,
     //   id: tokenResponse.data.owner.user.id,
