@@ -52,10 +52,22 @@ export default class TimereportInput extends Component {
                     </div>
                 </div>
                 <div className='col my-col'>
-                    <button type="button" className='btn btn-secondary btn-lg mybtn' variant="primary">Send report</button>
+                <div className='input-group'>
+                        <span className="input-group-text" id="basic-addon1">Aa</span>
+                        <input className='form-control' type="text" placeholder='Note' id="text-hours" name="worked-hours"></input>
+                    </div>
                 </div>
             </div>
-            <div className='row row-smaller'></div>
+            <div className='row'>
+                <div className='col'></div>
+                <div className='col send-button'>
+                    <button type="button" className='btn btn-secondary btn-lg mybtn' variant="primary">Send report</button>
+                </div>
+                <div className='col'></div>
+            </div>
+            
+
+            
             
         </div>
         

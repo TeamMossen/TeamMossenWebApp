@@ -17,6 +17,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  
+
+}
+.send-button{
+  text-align: center;
+  margin: 15px;
 
 }
 .h2-time-input{
