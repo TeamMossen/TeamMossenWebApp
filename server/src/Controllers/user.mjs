@@ -1,5 +1,6 @@
 import { notionPeoplesDatabaseId, notionTimeReportDatabaseId, notion } from "../notion.js";
 import { GetActiveProjects } from "../Database/project.mjs";
+import { AuthenticateToken } from "./login.mjs";
 import { PostTimeReport } from "../Database/timeReport.mjs";
 
 const returnDatabase = async (req, res, next) => {
@@ -18,6 +19,7 @@ const returnDatabase = async (req, res, next) => {
 const getActiveProjects = async (req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Content-Type", "application/json");
+  res.setHeader("Access-Control-Allow-Credentials, true");
   res.writeHead(200);
   res.write(JSON.stringify(await GetActiveProjects()));
   res.end();

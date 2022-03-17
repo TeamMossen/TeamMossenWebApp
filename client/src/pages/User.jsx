@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Axios from 'axios';
 import ProjectsTable from '../components/ProjectsTable';
 import TimereportInput from '../components/TimereportInput';
 
@@ -12,7 +13,13 @@ export default class User extends Component {
     };
   }
   componentDidMount(){
-    fetch("http://localhost:8000/activeProjects")
+    Axios.get("http://localhost:8000/activeProjects", {
+      headers: {
+        "Authorization": localStorage.getItem("token"),
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json"
+      }
+    })
     .then((response) => response.json())
     .then((data) => { 
       this.setState({

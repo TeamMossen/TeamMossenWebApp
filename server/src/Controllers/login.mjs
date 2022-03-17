@@ -95,12 +95,18 @@ const OauthCallback = async (req, res) => {
     });}}
   //  }
   // }
-  function authenticateToken(req, res, next) {
-    const authHeader = req.headers['authorization'];
+  function AuthenticateToken(req, res, next) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Content-Type", "application/json");
+    res.writeHead(200);
+    const authHeader = req.headers['Authorization'];
     const token = authHeader && authHeader.split(' ')[1];
-    if (token == null) return res.sendStatus(401);
+    if (token == null) {
+      res.sendStatus(401);
+      res.end();
+    }
   
-    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+    jwt.verify(token, accessTokenSecret, (err, user) => {
       console.log(err)
       if (err) return res.sendStatus(403)
       req.user = user
@@ -110,5 +116,6 @@ const OauthCallback = async (req, res) => {
 //export controller functions
 export {
     redirectToOauth,
-    OauthCallback
+    OauthCallback,
+    AuthenticateToken
 }

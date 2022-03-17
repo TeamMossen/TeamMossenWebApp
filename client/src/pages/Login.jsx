@@ -18,12 +18,14 @@ export default class Login extends Component {
         console.log(code);
         const res = await Axios.get(`http://localhost:8000/oauth-callback?code=${code}&redirect_uri=localhost:3000/finished`)
         console.log(res);
-        if (res.data.token) {
+        if (res.data.success) {
           // request was successful
-          console.log('efter if');
-          localStorage.setItem('token', res.data.token) // Store the token from this request in the local storage
+          localStorage.setItem('token', 'Bearer ' + res.data.token); // Store the token from this request in the local storage
+          console.log(localStorage.getItem('token'));
           this.setState({redirect: true});
-        } 
+        } else {
+          console.log('failed to auth');
+        }
       } catch (err) {
         console.error(err)
       }
@@ -45,7 +47,7 @@ export default class Login extends Component {
   render() {
     if (this.state.redirect)
     {
-      return <Navigate to="/dashboard"/>
+      return <Navigate to="/user"/>
     }
     return (
       <>
