@@ -16,6 +16,11 @@ async function GetUserById(id) {
     }
 }
 
+const database = await notion.databases.query({
+    database_id: notionPeoplesDatabaseId,
+});
+
 export {
-    GetUserById
+    GetUserById,
+    
 }

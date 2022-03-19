@@ -1,6 +1,6 @@
 import express from 'express'; //import express
 //import { Client } from "@notionhq/client";
-
+import cors from 'cors';
 import { userRouter } from './Routes/user.mjs';
 import { loginRouter } from './Routes/login.mjs';
 
@@ -12,7 +12,7 @@ const port = 8000;
 
 
 const app = express();
-
+app.use(cors());
 app.use(express.json());
 
 app.use('/', userRouter, loginRouter); //to use the routes

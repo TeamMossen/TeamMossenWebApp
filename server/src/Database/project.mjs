@@ -7,6 +7,11 @@ async function GetActiveProjects() {
     return response.results.filter(x => x.properties.Status.select.name == "Active").map(x => x.properties);
 }
 
+const Database = await notion.databases.query({
+    database_id: notionProjectsDatabaseId,
+});
+
 export {
-    GetActiveProjects
+    GetActiveProjects,
+    Database
 }
