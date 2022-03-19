@@ -4,7 +4,7 @@ import {  returnDatabase, getActiveProjects } from  '../Controllers/user.mjs';
 import { AuthenticateToken } from '../Controllers/login.mjs';
 
 userRouter.get('/data', returnDatabase);
-userRouter.get('/activeProjects', AuthenticateToken, getActiveProjects);
+userRouter.use('/activeProjects', AuthenticateToken, getActiveProjects);
 
 // userRouter.post('/tea', newTea);
 // userRouter.delete('/tea', deleteAllTea);

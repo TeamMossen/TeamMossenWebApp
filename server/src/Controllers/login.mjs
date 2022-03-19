@@ -97,19 +97,20 @@ const OauthCallback = async (req, res) => {
   // }
   function AuthenticateToken(req, res, next) {
     res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Content-Type", "application/json");
-    res.writeHead(200);
+    res.setHeader("Access-Control-Expose-Headers", "Authorization");
+    res.setHeader("Access-Control-Allow-Headers", "Authorization");  
     const authHeader = req.headers['Authorization'];
+    console.log(req.body);
     const token = authHeader && authHeader.split(' ')[1];
     if (token == null) {
-      res.sendStatus(401);
-      res.end();
-    }
+      console.log('tokennull');
+      return res.sendStatus(403);
+      }
   
-    jwt.verify(token, accessTokenSecret, (err, user) => {
+    jwt.verify(token, accessTokenSecret, (err, decoded) => {
       console.log(err)
       if (err) return res.sendStatus(403)
-      req.user = user
+      req.decoded = decoded;
       next();
     })
   }

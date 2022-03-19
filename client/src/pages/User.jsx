@@ -13,12 +13,17 @@ export default class User extends Component {
     };
   }
   componentDidMount(){
-    Axios.get("http://localhost:8000/activeProjects", {
+    const token = localStorage.getItem('token')
+    console.log(token);
+    fetch("http://localhost:8000/activeProjects", {
+      method: 'POST',
       headers: {
-        "Authorization": localStorage.getItem("token"),
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json"
-      }
+        'Authorization' : 'bjajsk'
+      },
+      body: {
+        'Authorization': 'hadfhadhgadgd'
+      },
+      mode: 'no-cors'
     })
     .then((response) => response.json())
     .then((data) => { 

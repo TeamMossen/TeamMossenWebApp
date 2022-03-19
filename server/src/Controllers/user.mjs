@@ -16,10 +16,11 @@ const returnDatabase = async (req, res, next) => {
 }
 
 //GET '/user'
-const getActiveProjects = async (req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
+const getActiveProjects = async (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.setHeader("Access-Control-Expose-Headers", "Authorization");
+  res.setHeader("Access-Control-Allow-Headers", "Authorization");
   res.setHeader("Content-Type", "application/json");
-  res.setHeader("Access-Control-Allow-Credentials, true");
   res.writeHead(200);
   res.write(JSON.stringify(await GetActiveProjects()));
   res.end();
