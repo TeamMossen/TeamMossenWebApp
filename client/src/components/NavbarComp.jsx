@@ -20,7 +20,7 @@ export default function NavbarComp({token}) {
                 <Navbar.Collapse id="navbarScroll">
                     <Nav className="me-auto"> {/* my-2 my-lg-0 style={{ maxHeight: '100px' }} navbarScroll */}
                         <NavLink className="nav-link" to="/user">time report</NavLink>
-                        {token.Role == "projectManager" || token.Role == "Boss" && <>
+                        {(token.Role == "ProjectManager" || token.Role == "Boss") && <>
                             <NavLink className="nav-link" to="/pmpage1">PM page 1</NavLink>
                             <NavLink className="nav-link" to="/pmpage2">PM page 2</NavLink> </>
                         }

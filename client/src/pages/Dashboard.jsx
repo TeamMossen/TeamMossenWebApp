@@ -4,7 +4,7 @@ import NavbarComp from '../components/NavbarComp.jsx'
 export default class Dashboard extends Component {
   render() {
       let tempToken = {
-          Role:"Boss"
+          Role:"ProjectManager"
       }
     return (
       <>
