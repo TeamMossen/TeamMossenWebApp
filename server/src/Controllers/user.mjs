@@ -3,9 +3,7 @@ import { AuthenticateToken } from "./login.mjs";
 import { PostTimeReport, Database } from "../Database/timeReport.mjs";
 
 const returnDatabase = async (req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Content-Type", "application/json");
-    
     //PostTimeReport("date","person id",6,"project id","ZZZ");
     res.writeHead(200);
     res.write(JSON.stringify(Database));
@@ -14,7 +12,6 @@ const returnDatabase = async (req, res, next) => {
 
 //GET '/user'
 const getActiveProjects = async (req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Content-Type", "application/json");
   res.setHeader("Access-Control-Allow-Credentials, true");
   res.writeHead(200);

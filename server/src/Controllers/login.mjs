@@ -4,7 +4,6 @@ import axios from 'axios';
 import { GetUserById } from '../Database/user.mjs';
 
 const redirectToOauth = async (req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader('Content-Type', 'application/json');
   res.write(`https://api.notion.com/v1/oauth/authorize?owner=user&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Foauth-callback&client_id=${notionClientId}`);
   res.end();
@@ -96,7 +95,6 @@ const OauthCallback = async (req, res) => {
   //  }
   // }
   function AuthenticateToken(req, res, next) {
-    res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Content-Type", "application/json");
     res.writeHead(200);
     const authHeader = req.headers['Authorization'];
