@@ -95,9 +95,10 @@ const OauthCallback = async (req, res) => {
   //  }
   // }
   function AuthenticateToken(req, res, next) {
+    res.setHeader('Access-Control-Allow-Headers', 'Authorization');
     const authHeader = req.headers['Authorization'];
-    console.log(JSON.stringify(req.headers));
-    console.log(authHeader);
+    console.log(req.headers);
+    console.log(req.header('Authorization'));
     const token = authHeader && authHeader.split(' ')[1];
     if (token == null) {
       console.log('tokennull');

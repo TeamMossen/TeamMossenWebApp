@@ -21,7 +21,7 @@ export default class Login extends Component {
         if (res.data.success) {
           // request was successful
           localStorage.setItem('token', 'Bearer ' + res.data.token); // Store the token from this request in the local storage
-          console.log(localStorage.getItem('token') + 'bajsss');
+          console.log(localStorage.getItem('token'));
           this.setState({redirect: true});
         } else {
           console.log('failed to auth');

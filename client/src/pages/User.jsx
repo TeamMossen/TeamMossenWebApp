@@ -17,11 +17,11 @@ export default class User extends Component {
     console.log(token);
     fetch("http://localhost:8000/activeProjects", {
       method: 'POST',
-      headers: {
-        'Authorization' : 'bjajsk'
-      },
+      headers: new Headers({
+        'Authorization': token,
+        'Content-Type': 'application/json'
+      }),
       body: JSON.stringify({authorization: 'blalsdfla'}),
-      mode: 'no-cors'
     })
     .then((response) => response.json())
     .then((data) => { 
