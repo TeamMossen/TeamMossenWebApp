@@ -1,4 +1,4 @@
-import { GetActiveProjects } from "../Database/project.mjs";
+import { GetProjects } from "../Database/project.mjs";
 import { AuthenticateToken } from "./login.mjs";
 import { PostTimeReport, Database } from "../Database/timeReport.mjs";
 
@@ -11,11 +11,11 @@ const returnDatabase = async (req, res, next) => {
 }
 
 //GET '/user'
-const getActiveProjects = async (req, res, next) => {
+const getProjects = async (req, res, next) => {
   console.log(req.decoded);
   res.setHeader("Content-Type", "application/json");
   res.writeHead(200);
-  res.write(JSON.stringify(await GetActiveProjects()));
+  res.write(JSON.stringify(await GetProjects(req.query.status)));
   res.end();
 };
 
@@ -48,7 +48,7 @@ const getActiveProjects = async (req, res, next) => {
 //export controller functions
 export {
     returnDatabase,
-    getActiveProjects, 
+    getProjects, 
     // newTea,
     // deleteAllTea,
     // getOneTea,

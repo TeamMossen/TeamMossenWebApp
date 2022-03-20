@@ -1,10 +1,13 @@
 import { notionProjectsDatabaseId, notion } from '../notion.js'
 
-async function GetActiveProjects() {
+async function GetProjects(status) {
     const response = await notion.databases.query({
         database_id: notionProjectsDatabaseId,
     });
-    return response.results.filter(x => x.properties.Status.select.name == "Active").map(x => x.properties);
+    if(status == "active")
+        return response.results.filter(x => x.properties.Status.select.name == "Active").map(x => x.properties);
+    else
+        return response.results.map(x => x.properties);
 }
 
 const Database = await notion.databases.query({
@@ -12,6 +15,6 @@ const Database = await notion.databases.query({
 });
 
 export {
-    GetActiveProjects,
+    GetProjects,
     Database
 }

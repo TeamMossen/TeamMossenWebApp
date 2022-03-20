@@ -1,10 +1,10 @@
 import express from 'express';
 export const userRouter  = express.Router();
-import {  returnDatabase, getActiveProjects } from  '../Controllers/user.mjs';
+import {  returnDatabase, getProjects } from  '../Controllers/user.mjs';
 import { AuthenticateToken } from '../Controllers/login.mjs';
 
 userRouter.get('/data', returnDatabase);
-userRouter.get('/activeProjects', AuthenticateToken, getActiveProjects);
+userRouter.get('/getProjects', AuthenticateToken, getProjects);
 
 // userRouter.post('/tea', newTea);
 // userRouter.delete('/tea', deleteAllTea);
