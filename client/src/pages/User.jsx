@@ -35,7 +35,7 @@ export default class User extends Component {
     
   }
   render() {
-
+    console.log(this.state.fetchedProjects);
     if (!this.state.projectsFetched)
     {
         return (
