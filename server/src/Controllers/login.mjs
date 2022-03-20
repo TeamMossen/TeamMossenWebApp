@@ -95,16 +95,9 @@ const OauthCallback = async (req, res) => {
   //  }
   // }
   function AuthenticateToken(req, res, next) {
-<<<<<<< HEAD
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Expose-Headers", "Authorization");
-    res.setHeader("Access-Control-Allow-Headers", "Authorization");  
-=======
-    res.setHeader("Content-Type", "application/json");
-    res.writeHead(200);
->>>>>>> a5b3efbdba1249dfbb1a0417bfa48fc51f8ad59d
     const authHeader = req.headers['Authorization'];
-    console.log(req.body);
+    console.log(JSON.stringify(req.headers));
+    console.log(authHeader);
     const token = authHeader && authHeader.split(' ')[1];
     if (token == null) {
       console.log('tokennull');

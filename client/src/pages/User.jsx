@@ -20,9 +20,7 @@ export default class User extends Component {
       headers: {
         'Authorization' : 'bjajsk'
       },
-      body: {
-        'Authorization': 'hadfhadhgadgd'
-      },
+      body: JSON.stringify({authorization: 'blalsdfla'}),
       mode: 'no-cors'
     })
     .then((response) => response.json())
