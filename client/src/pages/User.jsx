@@ -16,12 +16,11 @@ export default class User extends Component {
     const token = localStorage.getItem('token')
     console.log(localStorage.getItem('userData'));
     fetch("http://localhost:8000/activeProjects", {
-      method: 'POST',
+      method: 'GET',
       headers: new Headers({
         'Authorization': token,
         'Content-Type': 'application/json'
-      }),
-      body: JSON.stringify({authorization: 'blalsdfla'}),
+      })
     })
     .then((response) => response.json())
     .then((data) => { 
