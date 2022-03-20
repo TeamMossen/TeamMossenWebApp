@@ -49,6 +49,7 @@ const OauthCallback = async (req, res) => {
     return res.status(200).json({
       success: true,
       token: accessToken,
+      userData: JSON.stringify(userData)
     });
 
     // axios(options).then((data) => {

@@ -12,6 +12,7 @@ const returnDatabase = async (req, res, next) => {
 
 //GET '/user'
 const getActiveProjects = async (req, res, next) => {
+  console.log(req.decoded);
   res.setHeader("Content-Type", "application/json");
   res.writeHead(200);
   res.write(JSON.stringify(await GetActiveProjects()));

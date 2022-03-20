@@ -12,16 +12,14 @@ export default class Login extends Component {
     try {
 
         const { search } = history.location; // the search variable contains every string after the `?` mark with the `?` inclusive
-        console.log(search);
-        console.log(history.location);
         const code = search.split('=')[1].split('&')[0]; // to get the value of the code query param.
-        console.log(code);
         const res = await Axios.get(`http://localhost:8000/oauth-callback?code=${code}&redirect_uri=localhost:3000/finished`)
-        console.log(res);
+
         if (res.data.success) {
           // request was successful
           localStorage.setItem('token', 'Bearer ' + res.data.token); // Store the token from this request in the local storage
-          console.log(localStorage.getItem('token'));
+          localStorage.setItem('userData', res.data.userData);
+          console.log(localStorage.getItem('userData'));
           this.setState({redirect: true});
         } else {
           console.log('failed to auth');

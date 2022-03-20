@@ -5,6 +5,7 @@ import logo from '../logo.svg';
 
 
 export default function NavbarComp({token}) {
+    console.log(token);
     return (
         <Navbar className='nav-color' variant="light" expand="lg">
             <Container fluid>
@@ -20,11 +21,11 @@ export default function NavbarComp({token}) {
                 <Navbar.Collapse id="navbarScroll">
                     <Nav className="me-auto"> {/* my-2 my-lg-0 style={{ maxHeight: '100px' }} navbarScroll */}
                         <NavLink className="nav-link" to="/user">time report</NavLink>
-                        {(token.Role == "ProjectManager" || token.Role == "Boss") && <>
+                        {(token.role == "ProjectManager" || token.role == "Boss") && <>
                             <NavLink className="nav-link" to="/pmpage1">PM page 1</NavLink>
                             <NavLink className="nav-link" to="/pmpage2">PM page 2</NavLink> </>
                         }
-                        {token.Role == "Boss" &&
+                        {token.role == "Boss" &&
                             <NavLink className="nav-link" to="/boss">Boss page</NavLink>
                         }
                         

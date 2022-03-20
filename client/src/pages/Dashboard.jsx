@@ -3,12 +3,11 @@ import NavbarComp from '../components/NavbarComp.jsx'
 
 export default class Dashboard extends Component {
   render() {
-      let tempToken = {
-          Role:"ProjectManager"
-      }
+      let userData = localStorage.getItem('userData');
+
     return (
       <>
-      <NavbarComp token={tempToken}/>
+      <NavbarComp token={userData}/>
       
       </>
     )
