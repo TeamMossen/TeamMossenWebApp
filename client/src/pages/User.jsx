@@ -32,7 +32,7 @@ export default class User extends Component {
     
   }
   render() {
-
+    const userData = JSON.parse(localStorage.getItem('userData'));
     if (!this.state.projectsFetched)
     {
         return (
@@ -51,9 +51,13 @@ export default class User extends Component {
             <img className="myPic" src={require("../static/images/clock.png")} alt="En klocka" />
           
           <TimereportInput props={this.state.fetchedProjects}/>
-          <ProjectsTable props={this.state.fetchedProjects} />
-         
+          {(userData.role == "ProjectManager" || userData.role == "Boss") &&
+           <ManagerProjectTable props={this.state.fetchedProjects} />
           
+          }
+          {(userData.role == "User") &&
+            <ProjectsTable props={this.state.fetchedProjects} />
+          }
         </>
       )
     }
