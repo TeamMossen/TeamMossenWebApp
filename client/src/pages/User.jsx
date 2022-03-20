@@ -15,7 +15,7 @@ export default class User extends Component {
   componentDidMount(){
     const token = localStorage.getItem('token')
     console.log(localStorage.getItem('userData'));
-    fetch("http://localhost:8000/activeProjects", {
+    fetch("http://localhost:8000/getProjects?status=active", {
       method: 'GET',
       headers: new Headers({
         'Authorization': token,
