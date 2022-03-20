@@ -17,7 +17,8 @@ export default class User extends Component {
   componentDidMount(){
     const token = localStorage.getItem('token')
     console.log(this.state.userData);
-    fetch("http://localhost:8000/getProjects?status=active", {
+    const url = this.state.userData.role == "User" ? "http://localhost:8000/getProjects?status=active" : "http://localhost:8000/getProjects";
+    fetch(url, {
       method: 'GET',
       headers: new Headers({
         'Authorization': token,
