@@ -3,11 +3,10 @@ import NavbarComp from '../components/NavbarComp.jsx'
 
 export default class Dashboard extends Component {
   render() {
-      let userData = localStorage.getItem('userData');
-
+    const userData = JSON.parse(localStorage.getItem('userData'));
     return (
       <>
-      <NavbarComp token={userData}/>
+      <NavbarComp userData={userData}/>
       
       </>
     )

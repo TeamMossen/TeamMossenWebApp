@@ -4,8 +4,8 @@ import { Navbar, Nav, Container} from 'react-bootstrap'
 import logo from '../logo.svg';
 
 
-export default function NavbarComp(userData) {
-    console.log(userData);
+export default function NavbarComp({userData}) {
+   // userData = userData.token;
     return (
         <Navbar className='nav-color' variant="light" expand="lg">
             <Container fluid>
