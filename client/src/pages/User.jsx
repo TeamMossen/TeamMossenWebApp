@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import ProjectsTable from '../components/ProjectsTable';
+import ManagerProjectTable from '../components/ManagerProjectTable';
 import TimereportInput from '../components/TimereportInput';
 
 export default class User extends Component {
@@ -8,13 +9,14 @@ export default class User extends Component {
     super(props);
 
     this.state = {
+      userData: JSON.parse(localStorage.getItem('userData')),
       fetchedProjects: [],
       projectsFetched: false
     };
   }
   componentDidMount(){
     const token = localStorage.getItem('token')
-    console.log(localStorage.getItem('userData'));
+    console.log(this.state.userData);
     fetch("http://localhost:8000/getProjects?status=active", {
       method: 'GET',
       headers: new Headers({
@@ -32,7 +34,7 @@ export default class User extends Component {
     
   }
   render() {
-    const userData = JSON.parse(localStorage.getItem('userData'));
+
     if (!this.state.projectsFetched)
     {
         return (
@@ -51,11 +53,11 @@ export default class User extends Component {
             <img className="myPic" src={require("../static/images/clock.png")} alt="En klocka" />
           
           <TimereportInput props={this.state.fetchedProjects}/>
-          {(userData.role == "ProjectManager" || userData.role == "Boss") &&
+          {(this.state.userData.role == "ProjectManager" || this.state.userData.role == "Boss") &&
            <ManagerProjectTable props={this.state.fetchedProjects} />
           
           }
-          {(userData.role == "User") &&
+          {(this.state.userData.role == "User") &&
             <ProjectsTable props={this.state.fetchedProjects} />
           }
         </>
