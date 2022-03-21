@@ -18,12 +18,17 @@ export default function TimereportInput (props) {
     }
     
     function postTimeReport(){
+        {projects.map((project, key) => (
+            console.log(project.Projectname.id)
+            
+        ))}
        hours = document.getElementById('hours').value; 
        date = document.getElementById('date').value; 
        note = document.getElementById('note').value; 
        
-    //    fetch('http://localhost:8000/postTimeReport?date=2021-03-21?id=a810012a-eeae-4d38-84b8-c1e4c19ab615?hours=2?project=cf56730d-ad3b-4c22-9772-fec55ee95e77?note=kafferast', {
-    //         method: 'POST'
+    //    fetch(`http://localhost:8000/postTimeReport?date=${date}?id=a810012a-eeae-4d38-84b8-c1e4c19ab615?hours=${hours}?project=cf56730d-ad3b-4c22-9772-fec55ee95e77?note=${note}`, {
+    //        method: 'POST'
+        
     //     })
     }
     return (

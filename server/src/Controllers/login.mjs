@@ -117,5 +117,6 @@ const OauthCallback = async (req, res) => {
 export {
     redirectToOauth,
     OauthCallback,
-    AuthenticateToken
+    AuthenticateToken,
+    
 }
