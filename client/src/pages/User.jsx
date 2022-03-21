@@ -15,6 +15,11 @@ export default class User extends Component {
     };
   }
   componentDidMount(){
+    // fetch("http://localhost:8000/data").then(res =>
+    //   console.log(res.json)
+    // );
+
+
     const token = localStorage.getItem('token')
     console.log(this.state.userData);
     const url = this.state.userData.role == "User" ? "http://localhost:8000/getProjects?status=active" : "http://localhost:8000/getProjects";

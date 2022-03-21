@@ -20,6 +20,7 @@ const getProjects = async (req, res, next) => {
 };
 
 const postTimeReport = (req, res, next) => {
+    //PostTimeReport("2022-03-21","99f9c07d-88f0-4b39-abf5-6ba8e3e6765c",6,"cf56730d-ad3b-4c22-9772-fec55ee95e77","ZZZ");
   PostTimeReport(req.query.date, req.query.id, req.query.hours, req.query.project, req.query.note);
   console.log("tjena");
 }
