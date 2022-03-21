@@ -26,10 +26,10 @@ export default function TimereportInput (props) {
        date = document.getElementById('date').value; 
        note = document.getElementById('note').value; 
        
-    //    fetch(`http://localhost:8000/postTimeReport?date=${date}?id=a810012a-eeae-4d38-84b8-c1e4c19ab615?hours=${hours}?project=cf56730d-ad3b-4c22-9772-fec55ee95e77?note=${note}`, {
-    //        method: 'POST'
+       fetch(`http://localhost:8000/postTimeReport?date=${date}?id=a810012a-eeae-4d38-84b8-c1e4c19ab615?hours=${hours}?project=cf56730d-ad3b-4c22-9772-fec55ee95e77?note=${note}`, {
+           method: 'POST'
         
-    //     })
+        })
     }
     return (
     
