@@ -58,7 +58,7 @@ export default class User extends Component {
           
             <img className="myPic" src={require("../static/images/clock.png")} alt="En klocka" />
           
-          <TimereportInput props={this.state.fetchedProjects}/>
+          <TimereportInput projects={this.state.fetchedProjects}user={this.state.userData}/>
           {(this.state.userData.role == "ProjectManager" || this.state.userData.role == "Boss") &&
            <ManagerProjectTable props={this.state.fetchedProjects} />
           

@@ -2,9 +2,9 @@ import React from 'react'
 import { Dropdown, DropdownButton} from 'react-bootstrap'
 
 
-export default function TimereportInput (props) {
+export default function TimereportInput ({projects, user}) {
       
-    const projects = props.props;
+    
     let title = "default";
     let hours = "00";
     let date = "0000-00-00";
@@ -18,18 +18,15 @@ export default function TimereportInput (props) {
     }
     
     function postTimeReport(){
-        {projects.map((project, key) => (
-            console.log(project.Projectname.id)
-            
-        ))}
-       hours = document.getElementById('hours').value; 
-       date = document.getElementById('date').value; 
-       note = document.getElementById('note').value; 
+        hours = document.getElementById('hours').value; 
+        date = document.getElementById('date').value; 
+        note = document.getElementById('note').value; 
        
-       fetch(`http://localhost:8000/postTimeReport?date=${date}?id=a810012a-eeae-4d38-84b8-c1e4c19ab615?hours=${hours}?project=cf56730d-ad3b-4c22-9772-fec55ee95e77?note=${note}`, {
-           method: 'POST'
+       fetch(`http://localhost:8000/postTimeReport?date=${date}&id=12f57bfc-6c43-4960-9930-094a6c734bc7&project=cf56730d-ad3b-4c22-9772-fec55ee95e77&note=ZZZ`, {
         
-        })
+        method: 'POST'
+
+    })
     }
     return (
     
