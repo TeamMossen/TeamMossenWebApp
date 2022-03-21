@@ -14,7 +14,7 @@ export default function TimereportInput (props) {
     }
 
     function postTimeReport(){
-        fetch('http://localhost:8000/postTimeReport?date=2021-03-21?id=a810012a-eeae-4d38-84b8-c1e4c19ab615?hours=2?project=Anotherproject?note=kafferast', {
+        fetch('http://localhost:8000/postTimeReport?date=2021-03-21?id=a810012a-eeae-4d38-84b8-c1e4c19ab615?hours=2?project=cf56730d-ad3b-4c22-9772-fec55ee95e77?note=kafferast', {
             method: 'POST'
         })
     }
