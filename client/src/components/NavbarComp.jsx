@@ -28,7 +28,7 @@ export default function NavbarComp({userData, activePage}) {
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav className="me-auto"> {/* my-2 my-lg-0 style={{ maxHeight: '100px' }} navbarScroll */}
-                        <button className="nav-link" onClick={() => handleClick()}>time report</button>
+                        <span className="nav-link" style={{cursor: "pointer"}} onClick={() => handleClick()}>time report</span>
                         {(userData.role == "ProjectManager" || userData.role == "Boss") && <>
                             <NavLink className="nav-link" to="/pmpage1">PM page 1</NavLink>
                             <NavLink className="nav-link" to="/pmpage2">PM page 2</NavLink> </>
