@@ -1,6 +1,7 @@
 import { GetProjects } from "../Database/project.mjs";
 import { AuthenticateToken } from "./login.mjs";
-import { PostTimeReport, Database } from "../Database/timeReport.mjs";
+import { Database } from "../Database/user.mjs";
+import { PostTimeReport } from "../Database/timeReport.mjs";
 
 const returnDatabase = async (req, res, next) => {
     res.setHeader("Content-Type", "application/json");
