@@ -29,7 +29,6 @@ export default class Dashboard extends Component {
                 {this.State.page == "user" &&
                     <User></User>
                 }
-
             </>
         )
     }

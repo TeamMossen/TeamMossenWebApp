@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Axios from 'axios';
 import ManagerProjectTable from '../components/ManagerProjectTable';
 import TimereportInput from '../components/TimereportInput';
 
