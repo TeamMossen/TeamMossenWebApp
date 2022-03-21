@@ -1,37 +1,32 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Dropdown, DropdownButton} from 'react-bootstrap'
 
 
-export default class TimereportInput extends Component {
+export default function TimereportInput (props) {
       
-    constructor(props) {
-        super(props);
-        this.state = {
-          projects: props.props
-        }
-        console.log(this.state.projects)
-       
-    
-    }
-  
-      
+    const projects = props.props;
+    let title = "default";
    
-    render() {
-        const handleSelect=(e)=>{
-            console.log(e);
-        }
+    
+    function myFunction(projectTitle){
+        title = projectTitle;
+        document.getElementById('dropdown-button').innerHTML = projectTitle;
+    }
+
+        console.log(title);
     return (
+    
+
+       
         
         <div className='container container-input'>
             <h2 className='h2-time-input'>Set project, time and date</h2>
             <div className='row my-row'>
                 <div className='col my-col'>
                   
-                    <DropdownButton title="Choose project" variant="secondary" id="dropdown-button" onSelect={handleSelect}>
-                        
-                        {this.state.projects.map((project, key) => (
-                        
-                            <Dropdown.Item key={key} eventkey={project.Projectname.title[0].plain_text}>{project.Projectname.title[0].plain_text}</Dropdown.Item>
+                    <DropdownButton title="Choose project" variant="secondary" id="dropdown-button" >
+                        {projects.map((project, key) => (
+                            <Dropdown.Item as="button" onClick={() => myFunction(project.Projectname.title[0].plain_text)} key={key}>{project.Projectname.title[0].plain_text}</Dropdown.Item>
                             
                         ))}
                     </DropdownButton>
@@ -76,4 +71,4 @@ export default class TimereportInput extends Component {
       
     )
     }
-}
+
