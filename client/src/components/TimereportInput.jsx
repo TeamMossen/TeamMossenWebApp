@@ -13,7 +13,11 @@ export default function TimereportInput (props) {
         document.getElementById('dropdown-button').innerHTML = projectTitle;
     }
 
-        console.log(title);
+    function postTimeReport(){
+        fetch('http://localhost:8000/postTimeReport?date=2021-03-21?id=a810012a-eeae-4d38-84b8-c1e4c19ab615?hours=2?project=Anotherproject?note=kafferast', {
+            method: 'POST'
+        })
+    }
     return (
     
 
@@ -56,7 +60,7 @@ export default function TimereportInput (props) {
             <div className='row'>
                 <div className='col'></div>
                 <div className='col send-button'>
-                    <button type="button" className='btn btn-secondary btn-lg mybtn' variant="primary">Send report</button>
+                    <button type="button" className='btn btn-secondary btn-lg mybtn' variant="primary" onClick={postTimeReport}>Send report</button>
                 </div>
                 <div className='col'></div>
             </div>

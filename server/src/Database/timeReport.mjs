@@ -12,7 +12,7 @@ async function PostTimeReport(date, userId, hours, project, note){
         },
         "Date": {
             "date": {
-                "start": "2022-03-17"
+                "start": date
             }
         },
         "Project": {

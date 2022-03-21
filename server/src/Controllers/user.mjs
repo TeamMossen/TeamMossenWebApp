@@ -19,7 +19,10 @@ const getProjects = async (req, res, next) => {
   res.end();
 };
 
-
+const postTimeReport = (req, res, next) => {
+  PostTimeReport(req.query.date, req.query.id, req.query.hours, req.query.project, req.query.note);
+  console.log("tjena");
+}
 // //POST '/tea'
 // const newTea = (req, res, next) => {
 //     res.json({message: "POST new tea"});
@@ -48,7 +51,8 @@ const getProjects = async (req, res, next) => {
 //export controller functions
 export {
     returnDatabase,
-    getProjects, 
+    getProjects,
+    postTimeReport, 
     // newTea,
     // deleteAllTea,
     // getOneTea,
