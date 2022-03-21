@@ -6,17 +6,25 @@ export default function TimereportInput (props) {
       
     const projects = props.props;
     let title = "default";
-   
+    let hours = "00";
+    let date = "0000-00-00";
+    let note = "something";
+    
+   console.log(projects);
     
     function myFunction(projectTitle){
         title = projectTitle;
         document.getElementById('dropdown-button').innerHTML = projectTitle;
     }
-
+    
     function postTimeReport(){
-        fetch('http://localhost:8000/postTimeReport?date=2021-03-21?id=a810012a-eeae-4d38-84b8-c1e4c19ab615?hours=2?project=cf56730d-ad3b-4c22-9772-fec55ee95e77?note=kafferast', {
-            method: 'POST'
-        })
+       hours = document.getElementById('hours').value; 
+       date = document.getElementById('date').value; 
+       note = document.getElementById('note').value; 
+       
+    //    fetch('http://localhost:8000/postTimeReport?date=2021-03-21?id=a810012a-eeae-4d38-84b8-c1e4c19ab615?hours=2?project=cf56730d-ad3b-4c22-9772-fec55ee95e77?note=kafferast', {
+    //         method: 'POST'
+    //     })
     }
     return (
     
@@ -41,19 +49,19 @@ export default function TimereportInput (props) {
                 <div className='col-sm-3 my-col'>
                     <div className='input-group'>
                         <span className="input-group-text" id="basic-addon1">00</span>
-                        <input className='form-control' type="text" placeholder='Worked hours' id="text-hours" name="worked-hours"></input>
+                        <input className='form-control' type="text" placeholder='Worked hours' id="hours" name="worked-hours"></input>
                     </div>
                 </div>
                 <div className='col-sm-3 my-col'>
                     <div className='input-group'>
                         <span className="input-group-text" id="basic-addon1">date</span>
-                        <input className='form-control' type="date" placeholder='Worked hours' id="text-hours" name="worked-hours"></input>
+                        <input className='form-control' type="date" placeholder='Worked hours' id="date" name="worked-hours"></input>
                     </div>
                 </div>
                 <div className='col my-col'>
                 <div className='input-group'>
                         <span className="input-group-text" id="basic-addon1">Aa</span>
-                        <input className='form-control' type="text" placeholder='Note' id="text-hours" name="worked-hours"></input>
+                        <input className='form-control' type="text" placeholder='Note' id="note" name="worked-hours"></input>
                     </div>
                 </div>
             </div>
