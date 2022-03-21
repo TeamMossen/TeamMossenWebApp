@@ -1,24 +1,21 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
-import ProjectsTable from '../components/ProjectsTable';
 import ManagerProjectTable from '../components/ManagerProjectTable';
 import TimereportInput from '../components/TimereportInput';
 
-export default class User extends Component {
+export default class ManagerProjects extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      userData: JSON.parse(localStorage.getItem('userData')),
       fetchedProjects: [],
       projectsFetched: false
     };
   }
   componentDidMount(){
     const token = localStorage.getItem('token')
-    console.log(this.state.userData);
-    const url = this.state.userData.role == "User" ? "http://localhost:8000/getProjects?status=active" : "http://localhost:8000/getProjects";
-    fetch(url, {
+
+    fetch("http://localhost:8000/activeProjects", {
       method: 'GET',
       headers: new Headers({
         'Authorization': token,
@@ -35,7 +32,7 @@ export default class User extends Component {
     
   }
   render() {
-    console.log(this.state.fetchedProjects);
+
     if (!this.state.projectsFetched)
     {
         return (
@@ -54,13 +51,9 @@ export default class User extends Component {
             <img className="myPic" src={require("../static/images/clock.png")} alt="En klocka" />
           
           <TimereportInput props={this.state.fetchedProjects}/>
-          {(this.state.userData.role == "ProjectManager" || this.state.userData.role == "Boss") &&
-           <ManagerProjectTable props={this.state.fetchedProjects} />
+          <ManagerProjectTable props={this.state.fetchedProjects} />
+         
           
-          }
-          {(this.state.userData.role == "User") &&
-            <ProjectsTable props={this.state.fetchedProjects} />
-          }
         </>
       )
     }
