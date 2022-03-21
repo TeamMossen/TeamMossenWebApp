@@ -4,8 +4,16 @@ import { Navbar, Nav, Container} from 'react-bootstrap'
 import logo from '../logo.svg';
 
 
-export default function NavbarComp({userData}) {
+export default function NavbarComp({userData, activePage}) {
    // userData = userData.token;
+   //console.log(activePage("test"));
+//    changePage = () => {
+     //activePage("user");
+//     }
+    function handleClick() {
+        activePage("user");
+        //console.log("hello hello?");
+    }
     return (
         <Navbar className='nav-color' variant="light" expand="lg">
             <Container fluid>
@@ -20,7 +28,7 @@ export default function NavbarComp({userData}) {
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav className="me-auto"> {/* my-2 my-lg-0 style={{ maxHeight: '100px' }} navbarScroll */}
-                        <NavLink className="nav-link" to="/user">time report</NavLink>
+                        <button className="nav-link" onClick={() => handleClick()}>time report</button>
                         {(userData.role == "ProjectManager" || userData.role == "Boss") && <>
                             <NavLink className="nav-link" to="/pmpage1">PM page 1</NavLink>
                             <NavLink className="nav-link" to="/pmpage2">PM page 2</NavLink> </>
