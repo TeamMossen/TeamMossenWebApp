@@ -13,7 +13,7 @@ async function GetUserById(id) {
         id: id,
         name: user[0].properties.Name.title[0].plain_text,
         role: user[0].properties.Role.rich_text[0].plain_text,
-        pageId: user[0].pageId
+        pageId: user[0].id
     }
 }
 
