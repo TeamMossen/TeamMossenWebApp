@@ -3,6 +3,7 @@ import Axios from 'axios';
 import ProjectsTable from '../components/User/ProjectsTable';
 import ManagerProjectTable from '../components/User/ManagerProjectTable';
 import TimereportInput from '../components/User/TimereportInput';
+import Loading from '../components/Loading.jsx';
 
 export default class User extends Component {
   constructor(props) {
@@ -44,13 +45,13 @@ export default class User extends Component {
         this.forceUpdate();
       }
   };
-
+  
   componentDidMount() {
     this.fetchProjects();
   }
   render() {
     if (!this.state.projectsFetched) {
-      return <h2>Loading...</h2>;
+      return <Loading></Loading>;//loading page
     }
     if (this.state.projectsFetched) {
       return (
@@ -63,11 +64,7 @@ export default class User extends Component {
             ></img>
           </div>
 
-          <img
-            className="myPic"
-            src={require("../static/images/clock.png")}
-            alt="En klocka"
-          />
+          
 
           <TimereportInput projects={this.state.fetchedProjects}user={this.state.userData}fetchProjects={this.fetchProjects}/>
           {(this.state.userData.role == "ProjectManager" ||
