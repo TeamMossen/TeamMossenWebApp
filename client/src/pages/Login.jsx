@@ -43,10 +43,10 @@ export default class Login extends Component {
   }
 
   render() {
-    if (this.state.redirect)
-    {
-      return <Navigate to="/dashboard"/>
-    }
+    // if (this.state.redirect)
+    // {
+    //   return <Navigate to="/dashboard"/>
+    // }
     return (
       <>
         <Stack
