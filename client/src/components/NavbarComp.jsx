@@ -5,15 +5,6 @@ import logo from '../logo.svg';
 
 
 export default function NavbarComp({userData, activePage}) {
-   // userData = userData.token;
-   //console.log(activePage("test"));
-//    changePage = () => {
-     //activePage("user");
-//     }
-    function handleClick() {
-        activePage("user");
-        //console.log("hello hello?");
-    }
     return (
         <Navbar className='nav-color' variant="light" expand="lg">
             <Container fluid>
@@ -28,13 +19,14 @@ export default function NavbarComp({userData, activePage}) {
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav className="me-auto"> {/* my-2 my-lg-0 style={{ maxHeight: '100px' }} navbarScroll */}
-                        <span className="nav-link" style={{cursor: "pointer"}} onClick={() => handleClick()}>time report</span>
+                        <span className="nav-link" style={{cursor: "pointer"}} onClick={() => activePage("user")}>time report</span>
                         {(userData.role == "ProjectManager" || userData.role == "Boss") && <>
                             <NavLink className="nav-link" to="/pmpage1">PM page 1</NavLink>
-                            <NavLink className="nav-link" to="/pmpage2">PM page 2</NavLink> </>
+                            </>
                         }
                         {userData.role == "Boss" &&
-                            <NavLink className="nav-link" to="/boss">Boss page</NavLink>
+                            <span className="nav-link" style={{cursor: "pointer"}} onClick={() => activePage("boss")}>Secret boss page</span>
+                            //<NavLink className="nav-link" to="/boss">Boss page</NavLink>
                         }
                         
                     </Nav>
