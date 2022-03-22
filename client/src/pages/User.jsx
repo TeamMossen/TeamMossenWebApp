@@ -64,11 +64,7 @@ export default class User extends Component {
             ></img>
           </div>
 
-          <img
-            className="myPic"
-            src={require("../static/images/clock.png")}
-            alt="En klocka"
-          />
+          
 
           <TimereportInput projects={this.state.fetchedProjects}user={this.state.userData}fetchProjects={this.fetchProjects}/>
           {(this.state.userData.role == "ProjectManager" ||
