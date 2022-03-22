@@ -7,9 +7,7 @@ export default class Boss extends Component {
   render() {
     return (
         <>
-            <div className="boss-div">
             
-            </div>
             <BossTable></BossTable>
             
             

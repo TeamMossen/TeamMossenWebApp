@@ -51,7 +51,7 @@ export default class User extends Component {
   }
   render() {
     if (!this.state.projectsFetched) {
-      return <Loading></Loading>;
+      return <Loading></Loading>;//loading page
     }
     if (this.state.projectsFetched) {
       return (
