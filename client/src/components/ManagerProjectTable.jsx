@@ -6,7 +6,7 @@ export default class ManagerProjectTable extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      projects: props.props.properties
+      projects: props.props
     }
   }
   render() {
@@ -35,7 +35,7 @@ export default class ManagerProjectTable extends Component {
               </thead>
               <tbody>
                 {this.state.projects.map((project, key) => (
-                  <ManagerProjectTableRow proj={project} key={key} />)
+                  <ManagerProjectTableRow proj={project.properties} key={key} />)
                 )}
               </tbody>
             </Table>

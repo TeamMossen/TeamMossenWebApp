@@ -5,17 +5,19 @@ async function GetProjects(status) {
         database_id: notionProjectsDatabaseId,
     });
     if(status == "active")
-        return response.results.filter(x => x.properties.Status.select.name == "Active").map(x => 
-            {
-                id = x.id,
-                properties = x.properties
-            });
+        return response.results.filter(x => x.properties.Status.select.name == "Active").map(x => {
+            const container = {  }
+            container.id = x.id;
+            container.properties = x.properties;
+            return container
+        });
     else
         return response.results.map(x => {
-            id = x.id,
-            properties = x.properties
+            const container = {  }
+            container.id = x.id;
+            container.properties = x.properties;
+            return container
         });
-            
             //[x.properties, x.id]);
 }
 

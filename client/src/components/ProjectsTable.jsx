@@ -6,7 +6,7 @@ export default class ProjectsTable extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      projects: props.props.properties
+      projects: props.props
     }
   }
   render() {
@@ -34,7 +34,7 @@ export default class ProjectsTable extends Component {
               </thead>
               <tbody>
                 {this.state.projects.map((project, key) => (
-                  <ProjectTableRow proj={project} key={key} />)
+                  <ProjectTableRow proj={project.properties} key={key} />)
                 )}
               </tbody>
             </Table>
