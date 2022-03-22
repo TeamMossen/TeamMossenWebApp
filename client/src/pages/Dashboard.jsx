@@ -4,10 +4,10 @@ import NavbarComp from '../components/NavbarComp.jsx'
 
 export default class Dashboard extends Component {
     State = {
-        page:""
+        page:"user"
     }
 
-    activePage = (page = "test") => {
+    activePage = (page = "user") => {
         //use dataFromChild
         this.State.page = page;
         console.log(this.State.page);
