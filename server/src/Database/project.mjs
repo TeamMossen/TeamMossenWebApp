@@ -9,6 +9,7 @@ async function GetProjects(status) {
             const container = {  }
             container.id = x.id;
             container.properties = x.properties;
+            //console.log(x.properties);
             return container
         });
     else

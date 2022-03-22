@@ -23,7 +23,13 @@ export default function TimereportInput ({projects, user, fetchProjects}) {
         {
           method: "POST",
         })
-        .then(fetchProjects(true));
+        .then(res => {
+            console.log(res);
+            
+                
+            fetchProjects(true)
+            }
+            );
     }
     return (       
         <div className='container container-input'>

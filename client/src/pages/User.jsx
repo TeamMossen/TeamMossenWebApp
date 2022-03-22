@@ -14,7 +14,11 @@ export default class User extends Component {
       projectsFetched: false,
     };
   }
+  sleep = (ms) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
   fetchProjects = (rerender = false) => {
+   // await this.sleep(1000);
     const token = localStorage.getItem("token");
     const url =
       this.state.userData.role == "User"
@@ -33,9 +37,10 @@ export default class User extends Component {
           fetchedProjects: data,
           projectsFetched: true,
         });
+        console.log(data);
       });
       if (rerender) {
-        console.log(this.state.fetchedProjects);
+        //console.log(this.state.fetchedProjects);
         this.forceUpdate();
       }
   };
