@@ -11,6 +11,7 @@ export default function TimereportInput ({projects, user}) {
     let note = "something";
     
    console.log(projects);
+   
     
     function myFunction(id,projectTitle){
         projectId = id;
@@ -40,7 +41,7 @@ export default function TimereportInput ({projects, user}) {
                   
                     <DropdownButton title="Choose project" variant="secondary" id="dropdown-button" >
                         {projects.map((project, key) => (
-                            <Dropdown.Item as="button" onClick={() => myFunction(project.id, project.Projectname.title[0].plain_text)} key={key}>{project.Projectname.title[0].plain_text}</Dropdown.Item>
+                            <Dropdown.Item as="button" onClick={() => myFunction(project.id, project.properties.Projectname.title[0].plain_text)} key={key}>{project.properties.Projectname.title[0].plain_text}</Dropdown.Item>
                             
                         ))}
                     </DropdownButton>
