@@ -1,5 +1,6 @@
-import { GetProjects,Database } from "../Database/project.mjs";
+import { GetProjects } from "../Database/project.mjs";
 import { AuthenticateToken } from "./login.mjs";
+import { Database } from "../Database/user.mjs";
 import { PostTimeReport } from "../Database/timeReport.mjs";
 
 const returnDatabase = async (req, res, next) => {
@@ -24,7 +25,6 @@ const postTimeReport = async (req, res, next) => {
   console.log(req.query.date, req.query.id, req.query.hours, req.query.project, req.query.note);
   await PostTimeReport(req.query.date, req.query.id, Number(req.query.hours), req.query.project, req.query.note);
   res.writeHead(200);
-  res.write("hello world");
   res.end();
 }
 // //POST '/tea'
