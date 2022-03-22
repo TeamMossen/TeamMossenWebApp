@@ -57,7 +57,7 @@
   top:-300px;
 }
 .bg {
-  background: black;
+  background: white;
   height: 100vh;
   width: 100%;
 
@@ -88,9 +88,10 @@
 
 }
 .span-loading {
-  color: whitesmoke;
+  color: black;
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-weight: bold;
   line-height: 200px;
   font-size: 25px;
   font-family: 'Playfair Display', serif;
