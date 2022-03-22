@@ -10,7 +10,6 @@ export default class Login extends Component {
   }
   socialLogin = async () => {
     try {
-
         const { search } = history.location; // the search variable contains every string after the `?` mark with the `?` inclusive
         const code = search.split('=')[1].split('&')[0]; // to get the value of the code query param.
         const res = await Axios.get(`http://localhost:8000/oauth-callback?code=${code}&redirect_uri=localhost:3000/finished`)
@@ -29,9 +28,10 @@ export default class Login extends Component {
       }
   }
   componentDidMount() {
-    
     const { pathname } = history.location;
-    console.log(pathname);
+
+    if(localStorage.getItem('userData')) { return this.setState({ redirect: true}) }
+
     if (pathname === '/oauth-callback') {
       this.socialLogin();
     }
