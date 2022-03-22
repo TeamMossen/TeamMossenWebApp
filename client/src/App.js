@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import { BrowserRouter as Router, Navigate, Route, Routes} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './pages/Login'
 import User from './pages/User'
@@ -18,9 +18,17 @@ function App() {
         <Route path="/boss" element={<Boss/>}/>
         <Route path="dashboard" element={<Dashboard/> }/>
         <Route path="/oauth-callback" element={<Login/>}/>
+        <Route path="/logout" element={<Logout/>}/>
       </Routes>
     </Router>
   );
+}
+
+function Logout(){
+  localStorage.removeItem("userData");
+  localStorage.removeItem("token");
+
+  return <Navigate to="/"/>
 }
 
 export default App;

@@ -1,6 +1,7 @@
 import React, { Component, useState } from 'react'
 import User from './User'
 import NavbarComp from '../components/NavbarComp.jsx'
+import Boss from './Boss'
 
 export default class Dashboard extends Component {
     State = {
@@ -26,8 +27,11 @@ export default class Dashboard extends Component {
         return (
             <>
                 <NavbarComp activePage={this.activePage} userData={userData} />
-                {this.State.page == "user" &&
-                    <User></User>
+                {
+                    this.State.page == "user" &&
+                    <User></User> 
+                    || this.State.page == "boss" &&
+                    <Boss></Boss> 
                 }
             </>
         )
