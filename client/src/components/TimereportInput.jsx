@@ -5,15 +5,15 @@ import { Dropdown, DropdownButton} from 'react-bootstrap'
 export default function TimereportInput ({projects, user}) {
       
     
-    let title = "default";
+    let projectId = "default";
     let hours = "00";
     let date = "0000-00-00";
     let note = "something";
     
    console.log(projects);
     
-    function myFunction(projectTitle){
-        title = projectTitle;
+    function myFunction(id,projectTitle){
+        projectId = id;
         document.getElementById('dropdown-button').innerHTML = projectTitle;
     }
     
@@ -40,7 +40,7 @@ export default function TimereportInput ({projects, user}) {
                   
                     <DropdownButton title="Choose project" variant="secondary" id="dropdown-button" >
                         {projects.map((project, key) => (
-                            <Dropdown.Item as="button" onClick={() => myFunction(project.Projectname.title[0].plain_text)} key={key}>{project.Projectname.title[0].plain_text}</Dropdown.Item>
+                            <Dropdown.Item as="button" onClick={() => myFunction(project.id, project.Projectname.title[0].plain_text)} key={key}>{project.Projectname.title[0].plain_text}</Dropdown.Item>
                             
                         ))}
                     </DropdownButton>

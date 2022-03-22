@@ -6,7 +6,7 @@ export default class ManagerProjectTable extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      projects: props.props
+      projects: props.props.properties
     }
   }
   render() {

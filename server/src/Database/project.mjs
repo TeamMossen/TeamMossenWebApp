@@ -5,9 +5,9 @@ async function GetProjects(status) {
         database_id: notionProjectsDatabaseId,
     });
     if(status == "active")
-        return response.results.filter(x => x.properties.Status.select.name == "Active").map(x => x.properties);
+        return response.results.filter(x => x.properties.Status.select.name == "Active").map(x => [x.properties, x.id]);
     else
-        return response.results.map(x => x.properties);
+        return response.results.map(x => [x.properties, x.id]);
 }
 
 const Database = await notion.databases.query({

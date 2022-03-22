@@ -1,6 +1,5 @@
-import { GetProjects } from "../Database/project.mjs";
+import { GetProjects,Database } from "../Database/project.mjs";
 import { AuthenticateToken } from "./login.mjs";
-import { Database } from "../Database/user.mjs";
 import { PostTimeReport } from "../Database/timeReport.mjs";
 
 const returnDatabase = async (req, res, next) => {
