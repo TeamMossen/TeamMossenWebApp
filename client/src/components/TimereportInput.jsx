@@ -1,39 +1,31 @@
-import React from 'react'
+import {React} from 'react'
 import { Dropdown, DropdownButton} from 'react-bootstrap'
 
-
-export default function TimereportInput ({projects, user}) {
-      
+export default function TimereportInput ({projects, user, fetchProjects}) {
     
     let projectId = "default";
     let hours = "00";
     let date = "0000-00-00";
     let note = "something";
-    
-   console.log(projects);
-   
-    
+
+
     function myFunction(id,projectTitle){
         projectId = id;
         document.getElementById('dropdown-button').innerHTML = projectTitle;
     }
     
-    function postTimeReport(){
-        hours = document.getElementById('hours').value; 
-        date = document.getElementById('date').value; 
-        note = document.getElementById('note').value; 
-       console.log(user);
-       fetch(`http://localhost:8000/postTimeReport?date=${date}&id=${user.pageId}&hours=${hours}&project=${projectId}&note=${note}`, {
-        
-        method: 'POST'
-
-    })
+    function postTimeReport() {
+      hours = document.getElementById("hours").value;
+      date = document.getElementById("date").value;
+      note = document.getElementById("note").value;
+      fetch(
+        `http://localhost:8000/postTimeReport?date=${date}&id=${user.pageId}&hours=${hours}&project=${projectId}&note=${note}`,
+        {
+          method: "POST",
+        })
+        .then(fetchProjects(true));
     }
-    return (
-    
-
-       
-        
+    return (       
         <div className='container container-input'>
             <h2 className='h2-time-input'>Set project, time and date</h2>
             <div className='row my-row'>
