@@ -25,6 +25,7 @@ export default function TimereportInput ({projects, user, fetchProjects}) {
         })
         .then(res => {
             console.log(res);
+            console.log(user.pageId);
             
                 
             fetchProjects(true)

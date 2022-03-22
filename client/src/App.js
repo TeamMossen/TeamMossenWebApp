@@ -5,6 +5,7 @@ import Login from './pages/Login'
 import User from './pages/User'
 import './App.css';
 import Dashboard from './pages/Dashboard';
+import Boss from './pages/Boss';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login/>}/>
         <Route path="/user" element={<User/>}/>
+        <Route path="/boss" element={<Boss/>}/>
         <Route path="dashboard" element={<Dashboard/> }/>
         <Route path="/oauth-callback" element={<Login/>}/>
       </Routes>
