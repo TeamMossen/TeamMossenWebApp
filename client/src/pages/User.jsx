@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
-import ProjectsTable from '../components/ProjectsTable';
-import ManagerProjectTable from '../components/ManagerProjectTable';
-import TimereportInput from '../components/TimereportInput';
+import ProjectsTable from '../components/User/ProjectsTable';
+import ManagerProjectTable from '../components/User/ManagerProjectTable';
+import TimereportInput from '../components/User/TimereportInput';
 
 export default class User extends Component {
   constructor(props) {
