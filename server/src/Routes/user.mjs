@@ -4,8 +4,8 @@ import {  returnDatabase, getProjects, postTimeReport } from  '../Controllers/us
 import { AuthenticateToken } from '../Controllers/login.mjs';
 
 userRouter.get('/data', returnDatabase);
-userRouter.get('/getProjects', AuthenticateToken, getProjects);
-userRouter.post('/postTimeReport',postTimeReport);
+userRouter.get('/user/getProjects', AuthenticateToken, getProjects);
+userRouter.post('/user/postTimeReport',postTimeReport);
 // userRouter.post('/tea', newTea);
 // userRouter.delete('/tea', deleteAllTea);
 

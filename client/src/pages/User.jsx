@@ -23,8 +23,8 @@ export default class User extends Component {
     const token = localStorage.getItem("token");
     const url =
       this.state.userData.role == "User"
-        ? "http://localhost:8000/getProjects?status=active"
-        : "http://localhost:8000/getProjects";
+        ? "http://localhost:8000/user/getProjects?status=active"
+        : "http://localhost:8000/user/getProjects";
     fetch(url, {
       method: "GET",
       headers: new Headers({
