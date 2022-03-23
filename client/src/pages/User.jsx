@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import ProjectsTable from '../components/User/ProjectsTable';
-import ManagerProjectTable from '../components/User/ManagerProjectTable';
+import ManagerProjectTable from '../components/ProjectManager/ManagerProjectTable';
 import TimereportInput from '../components/User/TimereportInput';
 import Loading from '../components/Loading.jsx';
 

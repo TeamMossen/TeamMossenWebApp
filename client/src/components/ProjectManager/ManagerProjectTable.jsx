@@ -31,6 +31,7 @@ export default class ManagerProjectTable extends Component {
                   <th>Worked Hours</th>
                   <th>Hours Left</th>
                   <th>Timespan</th>
+                  <th>Edit</th>
                 </tr>
               </thead>
               <tbody>
