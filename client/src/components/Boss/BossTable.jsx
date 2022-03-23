@@ -4,11 +4,12 @@ import BossTableRow from './BossTableRow';
 
 export default function BossTable() {
   return (
+      <>
+      <div className='boss-div'>
       <div className='container container-boss'>
-          
           <div className='row'>
             <div className='col'></div>
-            <div className='col text-center'><h2>Time report day view</h2></div>
+            <div className='col-6 text-center title-day-report'><h2>Time Report day view</h2></div>
             <div className='col'></div>
           </div>
           <div className='row'>
@@ -16,18 +17,20 @@ export default function BossTable() {
                   <Table striped bordered hover>
                       <thead>
                           <tr>
-                              <th>Worker name</th>
-                              <th>Day</th>
-                              <th>Hours</th>
+                              <th className='title-day-report'>Worker name</th>
+                              <th className='title-day-report'>Day</th>
+                              <th className='title-day-report'>Hours</th>
                           </tr>
                       </thead>
-                      <tbody>
+                      <tbody className='title-day-report'>
                           <BossTableRow></BossTableRow>
                       </tbody>
                   </Table>
               </div>
           </div>
       </div>
+      </div>
+      </>
   )
 }
 

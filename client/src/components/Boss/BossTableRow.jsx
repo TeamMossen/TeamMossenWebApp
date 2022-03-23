@@ -3,9 +3,9 @@ import React from 'react'
 export default function BossTableRow( props ) {
   return (
     <tr>
-        <td>Adam Jönsson</td>
-        <td>6 september</td>
-        <td>8 timmar</td>
+        <td><div className='title-day-report'>Adam Jönsson</div></td>
+        <td><div className='title-day-report'>6 September</div></td>
+        <td><div className='title-day-report'>7</div></td>
     </tr>
   );
 }

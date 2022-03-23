@@ -64,8 +64,6 @@ export default class User extends Component {
             ></img>
           </div>
 
-          
-
           <TimereportInput projects={this.state.fetchedProjects}user={this.state.userData}fetchProjects={this.fetchProjects}/>
           {(this.state.userData.role == "ProjectManager" ||
             this.state.userData.role == "Boss") && (
