@@ -45,28 +45,27 @@ async function PostTimeReport(date, userId, hours, projectId, note){
         database_id: notionTimeReportDatabaseId,
 });
 
-async function GetUsers() {
-    const response = Database;
-    // if(status == "active")
-    //     return response.results.filter(x => x.properties.Status.select.name == "Active").map(x => {
-    //         const container = {  }
-    //         container.id = x.id;
-    //         container.properties = x.properties;
-    //         //console.log(x.properties);
-    //         return container
-    //     });
-    // else
-        return response.results.map(x => x.properties);
-            //[x.properties, x.id]);
-}
+// async function GetUsers() {
+//     const response = Database;
+//     // if(status == "active")
+//     //     return response.results.filter(x => x.properties.Status.select.name == "Active").map(x => {
+//     //         const container = {  }
+//     //         container.id = x.id;
+//     //         container.properties = x.properties;
+//     //         //console.log(x.properties);
+//     //         return container
+//     //     });
+//     // else
+//         return response.results.map(x => x.properties);
+//             //[x.properties, x.id]);
+// }
 
-async function GetTimeReportsByDate(date){
+async function GetTimeReportsByDay(day){
     const response = Database;
     return response.results.filter(x => x.properties.Date.date.start == date).map(x => {
         const container = {  }
         container.user = x.properties.Person.relation[0].id;
         container.hours = x.properties.Hours.number;
-        //console.log(x.properties);
         return container
     });
 
@@ -79,6 +78,7 @@ async function GetTimeReportsByWeek(week){
 
 
   export{
+    GetTimeReportsByDay,
     PostTimeReport,
     Database
   }
