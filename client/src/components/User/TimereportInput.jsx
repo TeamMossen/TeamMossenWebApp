@@ -9,7 +9,7 @@ export default function TimereportInput ({projects, user, fetchProjects}) {
     let note = "something";
 
 
-    function myFunction(id,projectTitle){
+    function handleDropdown(id,projectTitle){
         projectId = id;
         document.getElementById('dropdown-button').innerHTML = projectTitle;
     }
@@ -40,7 +40,7 @@ export default function TimereportInput ({projects, user, fetchProjects}) {
                   
                     <DropdownButton title="Choose project" variant="secondary" id="dropdown-button" >
                         {projects.map((project, key) => (
-                            <Dropdown.Item as="button" onClick={() => myFunction(project.id, project.properties.Projectname.title[0].plain_text)} key={key}>{project.properties.Projectname.title[0].plain_text}</Dropdown.Item>
+                            <Dropdown.Item as="button" onClick={() => handleDropdown(project.id, project.properties.Projectname.title[0].plain_text)} key={key}>{project.properties.Projectname.title[0].plain_text}</Dropdown.Item>
                             
                         ))}
                     </DropdownButton>
