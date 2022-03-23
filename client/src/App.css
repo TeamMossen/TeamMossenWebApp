@@ -46,19 +46,31 @@
   background-size: cover;
   height: 100vh;
 }
+.row-push-down {
+  height: 200px;
+}
 
 .container-boss {
   position: relative;
   border: 5px solid black;
   border-radius: 10px;
-  width: 800px;
-  top:200px;
   box-shadow: 0px 0px 10px 8px grey;
 }
 .title-day-report {
   color:white;
   font-family: 'Playfair Display', serif;
   
+}
+.row-button-bossdate {
+  height: 100px;
+  
+  display: flex;
+  align-content: center;
+}
+.col-title-day-view {
+  text-align: center;
+  color:white;
+  font-family: 'Playfair Display', serif;
 }
 .bg {
   background: white;
