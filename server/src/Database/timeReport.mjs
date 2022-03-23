@@ -62,7 +62,7 @@ async function PostTimeReport(date, userId, hours, projectId, note){
 
 async function GetTimeReportsByDay(day){
     const response = Database;
-    return response.results.filter(x => x.properties.Date.date.start == date).map(x => {
+    return response.results.filter(x => x.properties.Date.date.start == day).map(x => {
         const container = {  }
         container.user = x.properties.Person.relation[0].id;
         container.hours = x.properties.Hours.number;

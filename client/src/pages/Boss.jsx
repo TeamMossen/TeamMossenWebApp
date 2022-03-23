@@ -1,12 +1,10 @@
-import React, { Component, useState } from 'react'
-import NavbarComp from '../components/NavbarComp.jsx'
+import React, { Component} from 'react'
 import BossTable from '../components/Boss/BossTable.jsx';
 import { Container, Row, Col,Button,ButtonGroup} from 'react-bootstrap'
 
 
 export default class Boss extends Component {
   constructor() {
-    
     super();
     this.state={
       datWeek:"date"
@@ -15,10 +13,17 @@ export default class Boss extends Component {
   updateDatWeek(value){
     this.setState({datWeek:value})
   }
+  handleClick(){
+    fetch(`http://localhost:8000/boss/getWorkedHours?span=day&when=2022-03-23`,
+      {
+        method: "GET",
+      })
+      .then(res => res.JSON )
+      .then(data => console.log(data))
+  }
  
   render() {
    
-    let datWeek ="date";
     return (
         <>
         
@@ -32,7 +37,7 @@ export default class Boss extends Component {
             <Col>
             <div className='input-group'>
               <span className="input-group-text" id="basic-addon1">date</span>
-              <input className='form-control' type={this.state.datWeek} placeholder='Worked hours' id="date" name="worked-hours"></input>
+              <input className='form-control' type={this.state.datWeek} placeholder='Worked hours' onChange={this.handleClick} id="date" name="worked-hours"></input>
           </div>
             </Col>
             <Col>
@@ -50,7 +55,7 @@ export default class Boss extends Component {
           </Row>
           <Row>
             <Col></Col>
-            <Col xs={7} md={12} ><BossTable></BossTable></Col>
+            <Col xs={7} md={12} ><BossTable span={this.state.datWeek}></BossTable></Col>
             <Col></Col>
           </Row>
         </Container>
