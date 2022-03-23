@@ -41,19 +41,42 @@ async function PostTimeReport(date, userId, hours, projectId, note){
     }});
     console.log("Post time report success");
   }
-
-
-
-  const Database = await notion.databases.query({
-    database_id: notionTimeReportDatabaseId,
+    const Database = await notion.databases.query({
+        database_id: notionTimeReportDatabaseId,
 });
 
-async function GetTimeReportByProjectId(projectId)
-{
+async function GetUsers() {
     const response = Database;
+    // if(status == "active")
+    //     return response.results.filter(x => x.properties.Status.select.name == "Active").map(x => {
+    //         const container = {  }
+    //         container.id = x.id;
+    //         container.properties = x.properties;
+    //         //console.log(x.properties);
+    //         return container
+    //     });
+    // else
+        return response.results.map(x => x.properties);
+            //[x.properties, x.id]);
+}
 
+async function GetTimeReportsByDate(date){
+    const response = Database;
+    return response.results.filter(x => x.properties.Date.date.start == date).map(x => {
+        const container = {  }
+        container.user = x.properties.Person.relation[0].id;
+        container.hours = x.properties.Hours.number;
+        //console.log(x.properties);
+        return container
+    });
 
 }
+async function GetTimeReportsByWeek(week){
+    const response = Database;
+    
+
+}
+
 
   export{
     PostTimeReport,
