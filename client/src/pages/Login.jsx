@@ -45,7 +45,7 @@ export default class Login extends Component {
   render() {
     if (this.state.redirect)
     {
-      return <Navigate to="/user"/>
+      return <Navigate to="/dashboard"/>
     }
     return (
       <>

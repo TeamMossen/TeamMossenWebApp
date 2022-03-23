@@ -19,7 +19,7 @@ export default function TimereportInput ({projects, user, fetchProjects}) {
       date = document.getElementById("date").value;
       note = document.getElementById("note").value;
       fetch(
-        `http://localhost:8000/postTimeReport?date=${date}&id=${user.pageId}&hours=${hours}&project=${projectId}&note=${note}`,
+        `http://localhost:8000/user/postTimeReport?date=${date}&id=${user.pageId}&hours=${hours}&project=${projectId}&note=${note}`,
         {
           method: "POST",
         })

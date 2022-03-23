@@ -5,7 +5,7 @@ import BossTableRow from './BossTableRow';
 export default function BossTable() {
   return (
       <>
-      <div className='boss-div'>
+      
       <div className='container container-boss'>
           <div className='row'>
             <div className='col'></div>
@@ -29,7 +29,7 @@ export default function BossTable() {
               </div>
           </div>
       </div>
-      </div>
+      
       </>
   )
 }
