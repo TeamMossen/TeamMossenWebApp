@@ -41,9 +41,19 @@ async function PostTimeReport(date, userId, hours, projectId, note){
     }});
     console.log("Post time report success");
   }
+
+
+
   const Database = await notion.databases.query({
     database_id: notionTimeReportDatabaseId,
 });
+
+async function GetTimeReportByProjectId(projectId)
+{
+    const response = Database;
+
+
+}
 
   export{
     PostTimeReport,
