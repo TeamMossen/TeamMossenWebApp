@@ -14,7 +14,7 @@ async function GetWrokedHours(span, when) {
     });
     let timeReports;
     if(span == "week")
-        timeReports = await GetTimeReportsByWeek(when);
+        {timeReports = await GetTimeReportsByWeek(when.replace('W',''));}
     else
         timeReports = await GetTimeReportsByDay(when);
     timeReports.forEach(timereport => {
