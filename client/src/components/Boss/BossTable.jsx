@@ -3,10 +3,10 @@ import Table from 'react-bootstrap/Table';
 import BossTableRow from './BossTableRow';
 
 export default function BossTable({span,users}) {
-   // console.log(users);
-  return (
+
+    return (
       <>
-      
+      {console.log(users)}
       <div className='container container-boss'>
           <div className='row'>
             <div className='col'></div>
