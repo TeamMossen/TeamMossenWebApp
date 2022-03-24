@@ -3,6 +3,7 @@ import Table from 'react-bootstrap/Table';
 import BossTableRow from './BossTableRow';
 
 export default function BossTable({span,users}) {
+   // console.log(users);
   return (
       <>
       
@@ -23,10 +24,12 @@ export default function BossTable({span,users}) {
                           </tr>
                       </thead>
                       <tbody className='title-day-report'>
-                          {users.map((user,key) =>
-                            <BossTableRow user={user} key={key}></BossTableRow>
-                          )}
-                          
+                          {
+                          users.map((user,key) =>(
+                            <BossTableRow user={user} key={key}/>, console.log("user"))
+                          )
+                          }
+                          {console.log("done")}
                       </tbody>
                   </Table>
               </div>
