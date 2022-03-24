@@ -6,7 +6,7 @@ async function GetWrokedHours(span, when) {
     //get list of people
     //console.log(await GetUsers());
      let users = (await GetUsers()).map(user => {
-        const container = {}
+        let container = {}
         container.id = user.id;
         container.name = user.properties.Name.title[0].plain_text;
         container.hours = 0;
@@ -17,6 +17,7 @@ async function GetWrokedHours(span, when) {
         {timeReports = await GetTimeReportsByWeek(when.replace('W',''));}
     else
         timeReports = await GetTimeReportsByDay(when);
+
     timeReports.forEach(timereport => {
       users.filter(user => user.id == timereport.user)[0].hours += timereport.hours;
    });
