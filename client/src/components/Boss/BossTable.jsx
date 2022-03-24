@@ -3,15 +3,15 @@ import Table from 'react-bootstrap/Table';
 import BossTableRow from './BossTableRow';
 import { Container, Row, Col} from 'react-bootstrap'
 
-export default function BossTable({span,users}) {
+export default function BossTable({users}) {
 
     return (
       <>
       
-      <Container>
+      <Container fluid>
             <Row>
               <Col className='container-boss'>
-                  <Table hover>
+                  <Table responsive="sm" hover>
                       <thead>
                           <tr>
                               <th className='title-day-report'>Worker name</th>

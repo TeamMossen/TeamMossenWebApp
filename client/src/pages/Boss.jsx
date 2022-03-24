@@ -43,24 +43,22 @@ export default class Boss extends Component {
             <Col></Col>
           </Row>
           <Row className='row-button-bossdate'>
-            <Col className='col-title-day-view'><h2>Select date for day/week view</h2></Col>
-            <Col>
-            <div className='input-group'>
+            <Col sm={4} className='col-title-day-view'><h2>Select date for day/week view</h2></Col>
+            <Col sm={4}>
+            <div className='input-group date-picker'>
               <span className="input-group-text" id="basic-addon1">date</span>
               <input className='form-control' type={this.state.datWeek} placeholder='Worked hours' onChange={this.handleClick} id="date" name="worked-hours"></input>
           </div>
             </Col>
-            <Col>
-              <Row>
-                <Col></Col>
-                <Col xs={6}> 
-                  <ButtonGroup size="lg">
+            <Col xs={{offset:3}} sm={{offset:4}} md={{ span: 2, offset: 1 }}>
+              
+                 
+                  <ButtonGroup className='btn-group' size="lg">
                     <Button onClick={() =>this.updateDatWeek("week")}>Weeks</Button>
                     <Button onClick={() =>this.updateDatWeek("date")}>Day</Button>
                   </ButtonGroup>
-                </Col>
-                <Col></Col>
-              </Row>
+                
+                
             </Col>
           </Row>
           <Row>
