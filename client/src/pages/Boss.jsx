@@ -42,7 +42,7 @@ export default class Boss extends Component {
         <Container>
           <Row className='row-push-down'>
             <Col className='p-5 col-title-day-view'>
-              <h2>Boss view gangsta</h2>
+              <h2>Boss Overview</h2>
             </Col>
           </Row>
           <Row className='p-4'>

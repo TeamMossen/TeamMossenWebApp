@@ -58,7 +58,6 @@ export default class User extends Component {
         <>
           <div className="background-div">
             <img
-              className="ica-pic"
               src={require("../static/images/icastampel.jpg")}
               alt="bild på stämpelklocka"
             ></img>
