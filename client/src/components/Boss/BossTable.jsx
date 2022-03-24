@@ -8,21 +8,19 @@ export default function BossTable({span,users}) {
     return (
       <>
       
-      <Container className='container-boss'>
-          <Row>
-            <Col></Col>
-            <Col className='text-center title-day-report'>
-                <h2>Time Report day view</h2>
-            </Col>
-            <Col></Col>
-          </Row>
-          <Row>
-              <Col className='my-col'>
-                  <Table striped bordered hover>
+      <Container>
+            <Row>
+              <Col className='container-boss'>
+                  <Table hover>
                       <thead>
                           <tr>
                               <th className='title-day-report'>Worker name</th>
-                              {/* <th className='title-day-report'>{span}</th> */}
+                              <th className='title-day-report'>{span}</th>
+                              <th className='title-day-report'>Hours</th>
+                          </tr>
+                          <tr>
+                              <th className='title-day-report'>Worker name</th>
+                              <th className='title-day-report'>{span}</th>
                               <th className='title-day-report'>Hours</th>
                           </tr>
                       </thead>
@@ -32,7 +30,7 @@ export default function BossTable({span,users}) {
                             <BossTableRow user={user} key={key}/>)
                           )
                           }
-                          
+                    
                       </tbody>
                   </Table>
               </Col>

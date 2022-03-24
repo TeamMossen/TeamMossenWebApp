@@ -51,9 +51,8 @@
 }
 
 .container-boss {
-  position: relative;
   border: 5px solid black;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0px 0px 10px 8px grey;
 }
 .title-day-report {

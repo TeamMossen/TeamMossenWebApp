@@ -43,7 +43,7 @@ export default class Boss extends Component {
             <Col></Col>
           </Row>
           <Row className='row-button-bossdate'>
-            <Col className='col-title-day-view'><h2>Select date for day view</h2></Col>
+            <Col className='col-title-day-view'><h2>Select date for day/week view</h2></Col>
             <Col>
             <div className='input-group'>
               <span className="input-group-text" id="basic-addon1">date</span>
