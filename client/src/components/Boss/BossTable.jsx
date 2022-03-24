@@ -4,8 +4,8 @@ import BossTableRow from './BossTableRow';
 import { Container, Row, Col} from 'react-bootstrap'
 
 export default function BossTable({span,users}) {
-   // console.log(users);
-  return (
+
+    return (
       <>
       
       <Container className='container-boss'>
