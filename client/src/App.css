@@ -46,10 +46,6 @@
   background-size: cover;
   height: 100vh;
 }
-.row-push-down {
-  height: 200px;
-}
-
 .container-boss {
   border: 5px solid black;
   border-radius: 20px;
@@ -62,12 +58,7 @@
   margin: 0;
   
 }
-.row-button-bossdate {
-  height: 100px;
-  
-  display: flex;
-  align-content: center;
-}
+
 .col-title-day-view {
   text-align: center;
   color:white;

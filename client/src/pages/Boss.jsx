@@ -1,6 +1,7 @@
 import React, { Component} from 'react'
 import BossTable from '../components/Boss/BossTable.jsx';
 import { Container, Row, Col,Button,ButtonGroup} from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 export default class Boss extends Component {
@@ -40,30 +41,29 @@ export default class Boss extends Component {
         <div className='boss-div'>
         <Container>
           <Row className='row-push-down'>
-            <Col></Col>
-          </Row>
-          <Row className='row-button-bossdate'>
-            <Col sm={4} className='col-title-day-view'><h2>Select date for day/week view</h2></Col>
-            <Col sm={4}>
-            <div className='input-group date-picker'>
-              <span className="input-group-text" id="basic-addon1">date</span>
-              <input className='form-control' type={this.state.datWeek} placeholder='Worked hours' onChange={this.handleClick} id="date" name="worked-hours"></input>
-          </div>
+            <Col className='p-5 col-title-day-view'>
+              <h2>Boss view gangsta</h2>
             </Col>
-            <Col xs={{offset:3}} sm={{offset:4}} md={{ span: 2, offset: 1 }}>
+          </Row>
+          <Row className='p-4'>
+            <Col md={5} className="p-3"  >
+              <div className='input-group date-picker'>
+                <span className="input-group-text" id="basic-addon1">date</span>
+                <input className='form-control' type={this.state.datWeek} placeholder='Worked hours' onChange={this.handleClick} id="date" name="worked-hours"></input>
+              </div>
+            </Col>
+            <Col xs={{offset:3}} sm={{offset:4}} md={{ span: 1, offset: 3 }}>
               
-                 
-                  <ButtonGroup className='btn-group' size="lg">
-                    <Button onClick={() =>this.updateDatWeek("week")}>Weeks</Button>
-                    <Button onClick={() =>this.updateDatWeek("date")}>Day</Button>
-                  </ButtonGroup>
-                
+              <ButtonGroup className='btn-group' size="lg">
+                <Button onClick={() => this.updateDatWeek("week")}>Weeks</Button>
+                <Button onClick={() => this.updateDatWeek("date")}>Day</Button>
+              </ButtonGroup>
                 
             </Col>
           </Row>
           <Row>
             <Col></Col>
-              <Col xs={7} md={12} >
+              <Col sm={8} md={12} >
                 <BossTable users={this.state.users}></BossTable>
               </Col>
             <Col></Col>
