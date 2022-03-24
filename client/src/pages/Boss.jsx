@@ -35,7 +35,8 @@ export default class Boss extends Component {
     this.setState({users: data})
   }
   async handleClick() {
-    let users = await fetch(`http://localhost:8000/boss/getWorkedHours?span=day&when=2022-03-23`,
+    let date = document.getElementById('date').value;
+    let users = await fetch(`http://localhost:8000/boss/getWorkedHours?span=day&when=${date}`,
       {
         method: "GET",
       })
