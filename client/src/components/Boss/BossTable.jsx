@@ -15,15 +15,9 @@ export default function BossTable({span,users}) {
                       <thead>
                           <tr>
                               <th className='title-day-report'>Worker name</th>
-                              <th className='title-day-report'>{span}</th>
                               <th className='title-day-report'>Hours</th>
                           </tr>
-                          <tr>
-                              <th className='title-day-report'>Worker name</th>
-                              <th className='title-day-report'>{span}</th>
-                              <th className='title-day-report'>Hours</th>
-                          </tr>
-                      </thead>
+                       </thead>
                       <tbody className='title-day-report'>
                           {
                           users.map((user,key) =>(

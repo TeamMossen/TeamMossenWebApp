@@ -66,7 +66,7 @@ export default class Boss extends Component {
           <Row>
             <Col></Col>
               <Col xs={7} md={12} >
-                <BossTable users={this.state.users} span={this.state.datWeek}></BossTable>
+                <BossTable users={this.state.users}></BossTable>
               </Col>
             <Col></Col>
           </Row>
