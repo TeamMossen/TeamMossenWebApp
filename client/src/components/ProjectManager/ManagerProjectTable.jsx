@@ -36,7 +36,7 @@ export default class ManagerProjectTable extends Component {
               </thead>
               <tbody>
                 {this.state.projects.map((project, key) => (
-                  <ManagerProjectTableRow proj={project.properties} key={key} />)
+                  <ManagerProjectTableRow proj={project.properties} projMeta={project} key={key} />)
                 )}
               </tbody>
             </Table>
