@@ -8,19 +8,21 @@ export default class Boss extends Component {
     super();
     this.state={
       datWeek:"date",
+      span:"day",
       users: []
     }
   }
   updateDatWeek(value){
     this.setState({datWeek:value})
+    if(value == "date")
+      this.setState({span: "day"})
+    else
+      this.setState({span: "week"})
   }
-  setsetstate(data)
-  {
-    this.setState({users: data})
-  }
+
     handleClick = () => {
     let date = document.getElementById('date').value;
-    fetch(`http://localhost:8000/boss/getWorkedHours?span=day&when=${date}`,
+    fetch(`http://localhost:8000/boss/getWorkedHours?span=${this.state.span}&when=${date}`,
       {
         method: "GET",
       })

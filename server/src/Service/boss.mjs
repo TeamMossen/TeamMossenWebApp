@@ -1,5 +1,5 @@
 import { GetUsers } from "../Database/user.mjs";
-import { GetTimeReportsByDay} from "../Database/timeReport.mjs";
+import { GetTimeReportsByDay, GetTimeReportsByWeek} from "../Database/timeReport.mjs";
 
 async function GetWrokedHours(span, when) {
     
@@ -13,7 +13,9 @@ async function GetWrokedHours(span, when) {
         return container;
     });
     let timeReports;
-    if(span == "day")
+    if(span == "week")
+        timeReports = await GetTimeReportsByWeek(when);
+    else
         timeReports = await GetTimeReportsByDay(when);
     timeReports.forEach(timereport => {
       users.filter(user => user.id == timereport.user)[0].hours += timereport.hours;
