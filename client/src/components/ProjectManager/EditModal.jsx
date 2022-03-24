@@ -21,6 +21,9 @@ export default function EditModal({display, row}) {
       fetch(`localhost:8000/projectmanager/editproject?page=${pageId}&hours=${hoursValue}&dateStart=${dateStartValue}&dateEnd=${dateEndValue}`, {
         method: 'POST',
       })
+      .then(res => {
+        ExitModal();
+      })
     }
     const ExitModal = () => setShow(false);
     console.log(row)
