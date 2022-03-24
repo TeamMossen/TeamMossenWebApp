@@ -2,7 +2,7 @@ import React from 'react'
 import Table from 'react-bootstrap/Table';
 import BossTableRow from './BossTableRow';
 
-export default function BossTable({span}) {
+export default function BossTable({span,users}) {
   return (
       <>
       
@@ -23,13 +23,16 @@ export default function BossTable({span}) {
                           </tr>
                       </thead>
                       <tbody className='title-day-report'>
-                          <BossTableRow></BossTableRow>
+                          {users.map((user,key) =>
+                            <BossTableRow user={user} key={key}></BossTableRow>
+                          )}
+                          
                       </tbody>
                   </Table>
               </div>
           </div>
       </div>
-      
+    
       </>
   )
 }

@@ -7,7 +7,8 @@ export default class Boss extends Component {
   constructor() {
     super();
     this.state={
-      datWeek:"date"
+      datWeek:"date",
+      users: []
     }
   }
   updateDatWeek(value){
@@ -19,7 +20,10 @@ export default class Boss extends Component {
         method: "GET",
       })
        .then(res => res.json() )
-       .then(data => console.log(data))
+       .then(data => this.setState({
+         users:data
+        }))
+        
   }
  
   render() {
@@ -55,13 +59,15 @@ export default class Boss extends Component {
           </Row>
           <Row>
             <Col></Col>
-            <Col xs={7} md={12} ><BossTable span={this.state.datWeek}></BossTable></Col>
+              <Col xs={7} md={12} >
+                <BossTable users={this.state.users} span={this.state.datWeek}></BossTable>
+              </Col>
             <Col></Col>
           </Row>
         </Container>
         </div>
           
-        
+      
         </>
     )
   }
