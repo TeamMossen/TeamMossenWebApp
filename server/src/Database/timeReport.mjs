@@ -72,13 +72,18 @@ async function GetTimeReportsByDay(day){
 }
 async function GetTimeReportsByWeek(week){
     const response = Database;
-    
-
+    return response.results.filter(x => x.properties.Week.formula.string == week).map(x => {
+        const container = {  }
+        container.user = x.properties.Person.relation[0].id;
+        container.hours = x.properties.Hours.number;
+        return container
+    });
 }
 
 
   export{
     GetTimeReportsByDay,
+    GetTimeReportsByWeek,
     PostTimeReport,
     Database
   }
