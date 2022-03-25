@@ -18,10 +18,12 @@ export default function EditModal({display, row}) {
       setHoursValue(e.target.value);
     }
     const PostEdit = () => {
-      fetch(`localhost:8000/projectmanager/editproject?page=${pageId}&hours=${hoursValue}&dateStart=${dateStartValue}&dateEnd=${dateEndValue}`, {
+      console.log('hej')
+      fetch(`http://localhost:8000/projectmanager/editproject?page=${pageId}&hours=${hoursValue}&dateStart=${dateStartValue}&dateEnd=${dateEndValue}`, {
         method: 'POST',
       })
       .then(res => {
+        console.log(res);
         ExitModal();
       })
     }
@@ -71,7 +73,7 @@ export default function EditModal({display, row}) {
             <Button variant="secondary" onClick={ExitModal}>
               Close
             </Button>
-            <Button variant="primary" onClick={() => PostEdit}>
+            <Button variant="primary" onClick={() => PostEdit()}>
               Save Changes
             </Button>
           </Modal.Footer>
