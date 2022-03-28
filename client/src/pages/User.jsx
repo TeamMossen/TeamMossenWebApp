@@ -56,13 +56,8 @@ export default class User extends Component {
     if (this.state.projectsFetched) {
       return (
         <>
+          
           <div className="background-div">
-            <img
-              src={require("../static/images/icastampel.jpg")}
-              alt="bild på stämpelklocka"
-            ></img>
-          </div>
-
           <TimereportInput projects={this.state.fetchedProjects}user={this.state.userData}fetchProjects={this.fetchProjects}/>
           {(this.state.userData.role == "ProjectManager" ||
             this.state.userData.role == "Boss") && (
@@ -71,6 +66,7 @@ export default class User extends Component {
           {this.state.userData.role == "User" && (
             <ProjectsTable props={this.state.fetchedProjects} />
           )}
+         </div> 
         </>
       );
     }

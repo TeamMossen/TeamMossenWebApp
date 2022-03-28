@@ -55,8 +55,8 @@ export default class Boss extends Component {
             <Col xs={{offset:3}} sm={{offset:4}} md={{ span: 1, offset: 3 }}>
               
               <ButtonGroup className='btn-group' size="lg">
-                <Button onClick={() => this.updateDatWeek("week")}>Weeks</Button>
-                <Button onClick={() => this.updateDatWeek("date")}>Day</Button>
+                <Button variant="light" onClick={() => this.updateDatWeek("week")}>Weeks</Button>
+                <Button variant="light" onClick={() => this.updateDatWeek("date")}>Day</Button>
               </ButtonGroup>
                 
             </Col>

@@ -22,7 +22,7 @@ export default function ManagerProjectTableRow(props) {
   });
 
   return (
-    <tr>
+    <tr >
       <td>{props.proj.Projectname.title[0].plain_text}</td>
       <td>{props.proj.Status.select.name}</td>
       <td>{props.proj.Hours.number}</td>

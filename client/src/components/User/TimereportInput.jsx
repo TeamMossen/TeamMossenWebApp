@@ -32,13 +32,16 @@ export default function TimereportInput ({projects, user, fetchProjects}) {
             }
             );
     }
-    return (       
+    return (
+        
+        <>
+        
         <div className='container container-input'>
             <h2 className='h2-time-input'>Set project, time and date</h2>
             <div className='row my-row'>
                 <div className='col my-col'>
                   
-                    <DropdownButton title="Choose project" variant="secondary" id="dropdown-button" >
+                    <DropdownButton title="Choose project" variant="light" id="dropdown-button" >
                         {projects.map((project, key) => (
                             <Dropdown.Item as="button" onClick={() => handleDropdown(project.id, project.properties.Projectname.title[0].plain_text)} key={key}>{project.properties.Projectname.title[0].plain_text}</Dropdown.Item>
                             
@@ -70,7 +73,7 @@ export default function TimereportInput ({projects, user, fetchProjects}) {
             <div className='row'>
                 <div className='col'></div>
                 <div className='col send-button'>
-                    <button type="button" className='btn btn-secondary btn-lg mybtn' variant="primary" onClick={postTimeReport}>Send report</button>
+                    <button type="button" className='btn btn-light btn-lg mybtn' onClick={postTimeReport}>Send report</button>
                 </div>
                 <div className='col'></div>
             </div>
@@ -79,6 +82,7 @@ export default function TimereportInput ({projects, user, fetchProjects}) {
             
             
         </div>
+        </>
         
 
         
