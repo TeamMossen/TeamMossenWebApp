@@ -23,27 +23,25 @@ async function GetProjects(status) {
 }
 
 async function EditProjects(page, hours, dateStart, dateEnd) {
-    console.log(page);
-    console.log(hours);
+
     const response = await notion.pages.update({
         page_id: page,
-        body: {
         properties: {
-                "Hours": {
-                    "type": "number",
-                    "number": hours
-                },
-                "Timespan": {
-                    "id": "ulOq",
-                    "type": "date",
-                    "date": {
-                        "start": dateStart,
-                        "end": dateEnd,
-                        "time_zone": null
-                    }
+            "Hours": {
+                "id": "GP%5DW",
+                "type": "number",
+                "number": parseInt(hours)
+            },
+            "Timespan": {
+                "id": "ulOq",
+                "type": "date",
+                "date": {
+                    "start": dateStart,
+                    "end": dateEnd,
+                    "time_zone": null
                 }
-            }    }})
-    console.log(response);
+            },
+        }});
 }
 const Database = await notion.databases.query({
     database_id: notionProjectsDatabaseId,
