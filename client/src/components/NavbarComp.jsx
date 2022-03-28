@@ -6,7 +6,7 @@ import logo from '../logo.svg';
 
 export default function NavbarComp({userData, activePage}) {
     return (
-        <Navbar className='nav-color' variant="light" expand="lg">
+        <Navbar style={{backgroundColor:"#39367d"}} variant="dark" expand="lg">
             <Container fluid>
                 <Navbar.Brand><img
                     src={logo}
