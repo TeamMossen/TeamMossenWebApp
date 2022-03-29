@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom';
 import { Navbar, Nav, Container} from 'react-bootstrap'
-import logo from '../logo.svg';
+import logo from '../static/logo.svg';
 
 
 export default function NavbarComp({userData, activePage}) {
