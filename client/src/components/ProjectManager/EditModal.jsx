@@ -64,7 +64,7 @@ export default function EditModal({display, row}) {
                 </tr>
                 <tr>
                     <td></td>
-                    <td>Hours<Form.Control type="text" placeholder={row.proj.Hours.number} value={hoursValue} onChange={handleHoursChange}/></td>
+                    <td>Hours<Form.Control type="number" placeholder={row.proj.Hours.number} value={hoursValue} onChange={handleHoursChange}/></td>
                     <td>End Date<input className='form-control' type="date" value={dateEndValue} onChange={handleDateEndChange} id="datePickerEnd" name="worked-hours"></input></td>
                 </tr>
               </Table>
