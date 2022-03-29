@@ -26,11 +26,8 @@ export default function TimereportInput ({projects, user, fetchProjects}) {
         
         if (Boolean(hours) === false || Boolean(date) === false || Boolean(note) === false || Boolean(title) === false) {
             alert(("ERROR! You must enter a value in every field.."));
-            inputCheck = false;
+            return;
         }
-
-        
-        if (inputCheck) {
             fetch(
                 `http://localhost:8000/user/postTimeReport?date=${date}&id=${user.pageId}&hours=${hours}&project=${projectId}&note=${note}`,
                 {
@@ -44,7 +41,6 @@ export default function TimereportInput ({projects, user, fetchProjects}) {
                     fetchProjects(true)
                 }
                 );
-        }
     }
     return (
         
