@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Stack, Button} from 'react-bootstrap'
+import { Stack, Button, Container} from 'react-bootstrap'
 import  { Navigate } from 'react-router-dom';
 import Axios from 'axios';
 import history from "history/browser";
@@ -48,22 +48,25 @@ export default class Login extends Component {
       return <Navigate to="/dashboard"/>
     }
     return (
-      <>
-        <Stack
-          gap={2}
-          className="col-md-2 mx-auto"
-          style={{ marginTop: "20%" }}
-        >
-          <h1>Log in with Notion account!</h1>
-          <Button
-            variant="secondary"
-            href={
-              "https://api.notion.com/v1/oauth/authorize?owner=user&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Foauth-callback&client_id=d40705cf-c529-499f-b726-4365426a33ac"
-            }
+      <div class="loginBackground d-flex align-items-center justify-content-center ">
+        <div class="loginContainer">
+          <Stack
+            gap={ 4 }
           >
-            Log in
-          </Button>
-        </Stack>
+            <div>
+              <h1>Log in with Notion account!</h1>
+            </div>
+            <Button
+              variant="outline-primary"
+              size="lg"
+              href={
+                "https://api.notion.com/v1/oauth/authorize?owner=user&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Foauth-callback&client_id=d40705cf-c529-499f-b726-4365426a33ac"
+              }
+            >
+              Log in
+            </Button>
+          </Stack>
+        </div>
         {console.log(this.state.url)}
 
         {/* <DropdownButton id="dropdown-basic-button" title="Dropdown button">
@@ -73,7 +76,7 @@ export default class Login extends Component {
             <NavLink className="nav-link" to="/user">User</NavLink>
           </DropdownButton> 
                     <Button variant="secondary" onClick={this.fetchOauthUrl}>Log in</Button> */}
-      </>
+      </div>
     );
   }
 }
