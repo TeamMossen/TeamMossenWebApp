@@ -15,8 +15,16 @@ export default function TimereportInput ({projects, user, fetchProjects}) {
         title = projectTitle;
         document.getElementById('dropdown-button').innerHTML = projectTitle;
     }
-    function checkValues(hours,date,note){
+    function checkValues(hours){
+        if(isNaN(hours))
+        {   
+            return false;
+        }
+        else
+        {
+            return true;
 
+        }
     }
     
     function postTimeReport() {
@@ -25,12 +33,13 @@ export default function TimereportInput ({projects, user, fetchProjects}) {
         hours = document.getElementById("hours").value;
         date = document.getElementById("date").value;
         note = document.getElementById("note").value;
+        
         if (Boolean(hours) === false || Boolean(date) === false || Boolean(note) === false || Boolean(title) === false) {
             alert(("ERROR! You must enter a value in every field.."));
             inputCheck = false;
         }
 
-    //   checkValues(hours,date,note);
+        inputCheck = checkValues(hours);
         if (inputCheck === true) {
             fetch(
                 `http://localhost:8000/user/postTimeReport?date=${date}&id=${user.pageId}&hours=${hours}&project=${projectId}&note=${note}`,
@@ -69,7 +78,7 @@ export default function TimereportInput ({projects, user, fetchProjects}) {
                 <div className='col-sm-3 my-col'>
                     <div className='input-group'>
                         <span className="input-group-text" id="basic-addon1">00</span>
-                        <input className='form-control' type="text" placeholder='Worked hours' id="hours" name="worked-hours"></input>
+                        <input className='form-control' type="number" placeholder='Worked hours' id="hours" name="worked-hours"></input>
                     </div>
                 </div>
                 <div className='col-sm-3 my-col'>
