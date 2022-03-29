@@ -2,7 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
 /*******************/
-
+* {
+  font-family: Quicksand, sans-serif;
+}
 .container-input{
   position: relative;
   top:100px;  
