@@ -7,30 +7,45 @@ export default function TimereportInput ({projects, user, fetchProjects}) {
     let hours = "00";
     let date = "0000-00-00";
     let note = "something";
+    let title ="";
 
 
     function handleDropdown(id,projectTitle){
         projectId = id;
+        title = projectTitle;
         document.getElementById('dropdown-button').innerHTML = projectTitle;
+    }
+    function checkValues(hours,date,note){
+
     }
     
     function postTimeReport() {
-      hours = document.getElementById("hours").value;
-      date = document.getElementById("date").value;
-      note = document.getElementById("note").value;
-      fetch(
-        `http://localhost:8000/user/postTimeReport?date=${date}&id=${user.pageId}&hours=${hours}&project=${projectId}&note=${note}`,
-        {
-          method: "POST",
-        })
-        .then(res => {
-            console.log(res);
-            console.log(user.pageId);
-            
-                
-            fetchProjects(true)
-            }
-            );
+        
+        let inputCheck = true;
+        hours = document.getElementById("hours").value;
+        date = document.getElementById("date").value;
+        note = document.getElementById("note").value;
+        if (Boolean(hours) === false || Boolean(date) === false || Boolean(note) === false || Boolean(title) === false) {
+            alert(("ERROR! You must enter a value in every field.."));
+            inputCheck = false;
+        }
+
+    //   checkValues(hours,date,note);
+        if (inputCheck === true) {
+            fetch(
+                `http://localhost:8000/user/postTimeReport?date=${date}&id=${user.pageId}&hours=${hours}&project=${projectId}&note=${note}`,
+                {
+                    method: "POST",
+                })
+                .then(res => {
+                    console.log(res);
+                    console.log(user.pageId);
+
+
+                    fetchProjects(true)
+                }
+                );
+        }
     }
     return (
         
