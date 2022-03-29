@@ -15,17 +15,7 @@ export default function TimereportInput ({projects, user, fetchProjects}) {
         title = projectTitle;
         document.getElementById('dropdown-button').innerHTML = projectTitle;
     }
-    function checkValues(hours){
-        if(isNaN(hours))
-        {   
-            return false;
-        }
-        else
-        {
-            return true;
-
-        }
-    }
+ 
     
     function postTimeReport() {
         
@@ -39,8 +29,8 @@ export default function TimereportInput ({projects, user, fetchProjects}) {
             inputCheck = false;
         }
 
-        inputCheck = checkValues(hours);
-        if (inputCheck === true) {
+        
+        if (inputCheck) {
             fetch(
                 `http://localhost:8000/user/postTimeReport?date=${date}&id=${user.pageId}&hours=${hours}&project=${projectId}&note=${note}`,
                 {
