@@ -69,7 +69,6 @@
   height: 100vh;
 }
 .container-boss {
-  border: 5px solid black;
   border-radius: 20px;
   background-color:#39367d;
   box-shadow: 0px 0px 10px 8px grey;
@@ -93,7 +92,6 @@
   background:linear-gradient(115deg, rgba(57,54,125,1) 15%, rgba(106,97,180,1) 41%, rgba(14,4,97,1) 86%);
   height: 100vh;
   width: 100%;
-
 }
 .center {
   display: flex;
