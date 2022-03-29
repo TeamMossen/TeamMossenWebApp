@@ -90,7 +90,7 @@
 
 /*******Loading screen css********/
 .bg {
-  background: white;
+  background:linear-gradient(115deg, rgba(57,54,125,1) 15%, rgba(106,97,180,1) 41%, rgba(14,4,97,1) 86%);
   height: 100vh;
   width: 100%;
 
@@ -147,9 +147,7 @@
 /*************************************/
 
 /*******Screen-size adjustment*******/
- @media screen and (max-width:1500px) {
 
-}
 
 @media screen and (max-width:573px) {
 
