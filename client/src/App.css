@@ -1,5 +1,6 @@
-/*******Font*********/
+/*******Fonts*********/
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
 /*******************/
 
 .container-input{
@@ -48,7 +49,7 @@
 
 .loginBackground {
   background: linear-gradient(115deg, rgba(57,54,125,1) 15%, rgba(106,97,180,1) 41%, rgba(14,4,97,1) 86%);   height: 100vh;
-
+  font-family: 'Quicksand', sans-serif;
 }
 .loginContainer {
   background-color: whitesmoke;
@@ -72,7 +73,7 @@
 }
 .title-day-report {
   color:white;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Quicksand', sans-serif;
   padding:0px;
   margin: 0;
   
@@ -81,7 +82,7 @@
 .col-title-day-view {
   text-align: center;
   color:white;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Quicksand', sans-serif;
 }
 
 /*******Loading screen css********/
@@ -123,7 +124,7 @@
   font-weight: bold;
   line-height: 200px;
   font-size: 25px;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Quicksand', sans-serif;
 }
 @keyframes ring {
   0%{
