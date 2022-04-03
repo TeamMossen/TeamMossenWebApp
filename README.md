@@ -3,6 +3,9 @@
 Web application for time reporting to a notion database, including different roles for
 managers and users
 
+## Project structure
+React frontend under client folder
+Express.js backend under server folder
 ## Getting Started
 
 * npm
