@@ -5,6 +5,7 @@ managers and users
 
 ## Project structure
 React frontend under client folder
+
 Express.js backend under server folder
 ## Getting Started
 
