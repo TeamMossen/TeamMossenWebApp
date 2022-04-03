@@ -6,8 +6,9 @@ managers and users
 ## Getting Started
 
 * npm
+```
 npm install npm@latest -g
-
+```
 ### Built with
 
 * node.js
