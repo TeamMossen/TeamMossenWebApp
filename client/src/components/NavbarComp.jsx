@@ -13,7 +13,7 @@ export default function NavbarComp({userData, activePage}) {
                     width="30"
                     height="30"
                     className="d-inline-block align-top"
-                    alt="React Bootstrap logo" />
+                    alt="Team Mössen logo" />
                      Mössen
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
