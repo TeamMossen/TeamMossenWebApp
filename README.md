@@ -31,8 +31,8 @@ npm start
 
 ## Authors
 
-Contributors names and contact info
-
 [@alexmar000](https://github.com/alexmar000) 
+
 [@Kyemate](https://github.com/Kyemate) 
+
 [@antwonung](https://github.com/antwonung) 
