@@ -1,7 +1,8 @@
 /*******Fonts*********/
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
-/*******************/
+
+/**********Main*************/
 * {
   font-family: Quicksand, sans-serif;
 }
@@ -76,9 +77,6 @@
 .title-day-report {
   color:white;
   font-family: 'Quicksand', sans-serif;
-  
-  
-  
 }
 
 .col-title-day-view {
@@ -86,6 +84,7 @@
   color:white;
   font-family: 'Quicksand', sans-serif;
 }
+/****************************/
 
 /*******Loading screen css********/
 .bg {
